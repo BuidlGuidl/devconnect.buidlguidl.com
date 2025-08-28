@@ -34,7 +34,7 @@ export const ScheduleCalendar = () => {
     <div className="w-full max-w-7xl mx-auto p-4 sm:p-6 overflow-x-auto">
       {/* Header with day names */}
       <div className="flex gap-2 sm:gap-4 mb-6 min-w-[800px]">
-        <div className="w-12 text-sm font-medium text-base-content/60">Time</div>
+        <div className="w-8 text-sm font-medium text-base-content/60"></div>
         {days.map(day => {
           const { dayOfWeek, dateString } = getDayInfo(day);
           return (
