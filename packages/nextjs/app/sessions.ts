@@ -25,12 +25,12 @@ export interface Session {
 }
 
 export const sessionTypeColors = {
-  [SessionType.WORKSHOP]: "bg-blue-200 border-blue-300 text-blue-800",
-  [SessionType.OFFICE_HOURS]: "bg-green-200 border-green-300 text-green-800",
-  [SessionType.PANEL]: "bg-purple-200 border-purple-300 text-purple-800",
-  [SessionType.CTF]: "bg-red-200 border-red-300 text-red-800",
-  [SessionType.STUDENTS]: "bg-orange-200 border-orange-300 text-orange-800",
-  [SessionType.CHALLENGE]: "bg-indigo-200 border-indigo-300 text-indigo-800",
+  [SessionType.WORKSHOP]: "bg-blue-900 border-blue-300",
+  [SessionType.OFFICE_HOURS]: "bg-green-900 border-green-300",
+  [SessionType.PANEL]: "bg-purple-900 border-purple-300",
+  [SessionType.CTF]: "bg-red-900 border-red-300",
+  [SessionType.STUDENTS]: "bg-orange-900 border-orange-300",
+  [SessionType.CHALLENGE]: "bg-indigo-900 border-indigo-300",
 };
 
 export const SPEAKERS = {
