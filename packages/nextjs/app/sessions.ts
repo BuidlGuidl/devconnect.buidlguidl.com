@@ -7,6 +7,11 @@ export enum SessionType {
   CHALLENGE = "challenge",
 }
 
+export type Speaker = {
+  name: string;
+  image: string;
+};
+
 export interface Session {
   title: string;
   date: string;
@@ -16,6 +21,7 @@ export interface Session {
   dayOfWeek: string;
   dateString: string;
   type: SessionType;
+  speaker?: Speaker;
 }
 
 export const sessionTypeColors = {
@@ -25,6 +31,37 @@ export const sessionTypeColors = {
   [SessionType.CTF]: "bg-red-200 border-red-300 text-red-800",
   [SessionType.STUDENTS]: "bg-orange-200 border-orange-300 text-orange-800",
   [SessionType.CHALLENGE]: "bg-indigo-200 border-indigo-300 text-indigo-800",
+};
+
+export const SPEAKERS = {
+  AUSTIN: {
+    name: "Austin Griffith",
+    image: "/speakers/austin.png",
+  },
+  CARLOS: {
+    name: "Carlos Sánchez",
+    image: "/speakers/carlos.jpg",
+  },
+  PABLO: {
+    name: "Pablo Alayeto",
+    image: "/speakers/pablo.png",
+  },
+  PHILIP: {
+    name: "Philip Krause",
+    image: "/speakers/philip.png",
+  },
+  ELLIOT: {
+    name: "Elliott Alexander",
+    image: "/speakers/elliot.png",
+  },
+  HORSEFACTS: {
+    name: "Horsefacts",
+    image: "/speakers/horsefacts.jpg",
+  },
+  SHYAM: {
+    name: "Shyam",
+    image: "/speakers/shyam.jpg",
+  },
 };
 
 export const sessions: Session[] = [
@@ -50,6 +87,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
+    speaker: SPEAKERS.AUSTIN,
   },
   {
     title: "Introduction to SpeedRunEthereum",
@@ -72,6 +110,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.CHALLENGE,
+    speaker: SPEAKERS.ELLIOT,
   },
   {
     title: "BG Office hours / Mentoring",
@@ -96,6 +135,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.CHALLENGE,
+    speaker: SPEAKERS.PHILIP,
   },
   {
     title: "Challenge 3: ZK",
@@ -118,6 +158,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.WORKSHOP,
+    speaker: SPEAKERS.PABLO,
   },
   {
     title: "Live vibe coding (game + play)",
@@ -129,6 +170,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.WORKSHOP,
+    speaker: SPEAKERS.AUSTIN,
   },
   {
     title: "BG Office hours / Mentoring",
@@ -153,6 +195,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.WORKSHOP,
+    speaker: SPEAKERS.HORSEFACTS,
   },
   {
     title: "PMfers live / Interview / Panel",
@@ -164,6 +207,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.PANEL,
+    speaker: SPEAKERS.AUSTIN,
   },
   {
     title: "Capture the Flag",
@@ -175,6 +219,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.CTF,
+    speaker: SPEAKERS.CARLOS,
   },
 
   // Friday 21
@@ -188,6 +233,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Friday",
     dateString: "November 21",
     type: SessionType.STUDENTS,
+    speaker: SPEAKERS.SHYAM,
   },
   {
     title: "Founder speed dating / Pitch your idea",

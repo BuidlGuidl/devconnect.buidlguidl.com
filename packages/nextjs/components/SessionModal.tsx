@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Session, formatTo12Hour } from "~~/app/sessions";
 
 interface SessionModalProps {
@@ -16,30 +17,34 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
       <div className="modal-box max-w-2xl">
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h3 className="font-bold text-lg text-primary">{session.title}</h3>
-            <p className="text-sm text-base-content/70">
+            <h3 className="font-bold text-lg text-primary mb-0">{session.title}</h3>
+            {session.speaker && (
+              <div className="flex items-center gap-2">
+                <Image
+                  src={session.speaker.image}
+                  alt={session.speaker.name}
+                  width={32}
+                  height={32}
+                  className="rounded-full"
+                />
+                <p className="font-bold">{session.speaker.name}</p>
+              </div>
+            )}
+            <p className="text-sm text-base-content/70 m-0">
               {session.dayOfWeek}, {session.dateString}
             </p>
-            <p className="text-sm text-base-content/70">
+            <p className="text-sm text-base-content/70 mt-0 m-0">
               {formatTo12Hour(session.startTime)} - {formatTo12Hour(session.endTime)}
             </p>
           </div>
-          <button className="btn btn-sm btn-circle btn-ghost" onClick={onClose}>
+          <button className="btn btn-lg btn-circle btn-ghost" onClick={onClose}>
             ✕
           </button>
         </div>
 
         <div className="divider"></div>
 
-        <div className="py-4">
-          <p className="text-base leading-relaxed">{session.description}</p>
-        </div>
-
-        <div className="modal-action">
-          <button className="btn btn-primary" onClick={onClose}>
-            Close
-          </button>
-        </div>
+        <p className="text-base leading-relaxed">{session.description}</p>
       </div>
       <div className="modal-backdrop" onClick={onClose}></div>
     </div>
