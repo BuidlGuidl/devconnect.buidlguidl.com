@@ -72,7 +72,7 @@ export const sessions: Session[] = [
     startTime: "10:00",
     endTime: "11:00",
     description:
-      "Introduction: How to build on Ethereum. Learn the fundamentals of Ethereum development and why it's the leading platform for decentralized applications.",
+      "Introduction into the Ethereum ecosystem for builders. Learn the fundamentals of Ethereum development and why it's the leading platform for decentralized applications.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
@@ -83,7 +83,7 @@ export const sessions: Session[] = [
     startTime: "11:30",
     endTime: "12:30",
     description:
-      "The usual hands-on SE-2 workshop. Get your hands dirty building and deploying your first decentralized application using Scaffold-ETH 2.",
+      "Jump into Ethereum development with this hands-on workshop! Using Scaffold-ETH 2, you'll build and deploy your very first decentralized application from scratch. By the end of this session, you'll have a working dApp and understand the fundamentals of smart contract development. No prior blockchain experience required.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
@@ -95,18 +95,18 @@ export const sessions: Session[] = [
     startTime: "14:00",
     endTime: "15:00",
     description:
-      "Overview of platform / onchain portfolio / first few challenges. Learn how SpeedRunEthereum can help you build your onchain developer portfolio.",
+      "This session introduces SpeedRunEthereum, a gamified learning platform that helps developers understand all the Ethereum development gotchas as you build your onchain portfolio. We'll do a walkthrough of the first few challenges.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
   },
   {
-    title: "Challenge: OCL / Stablecoins",
+    title: "Stablecoins",
     date: "2025-11-18",
     startTime: "15:30",
     endTime: "16:30",
     description:
-      "Dive into Optimism Collective Learning challenges focused on stablecoins. Build and understand the mechanics of stable digital currencies.",
+      "Dive deep into the mechanics of stablecoins. Discover what problems they solve and explore different approaches like overcollateralization. This SpeedRunEthereum challenge will guide you through building your own stablecoin implementation while understanding the economic principles that keep these digital assets stable.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.CHALLENGE,
@@ -118,7 +118,7 @@ export const sessions: Session[] = [
     startTime: "16:30",
     endTime: "17:30",
     description:
-      "Get direct guidance, code reviews, and mentorship from BuidlGuidl members. Ask questions and get personalized help with your projects.",
+      "Get personalized guidance from experienced BuidlGuidl builders in this interactive mentoring session. Whether you're stuck on a coding challenge, need a code review, or want strategic advice on your project direction, our mentors are here to help. Bring your questions, your code, and your ideas.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.OFFICE_HOURS,
@@ -126,24 +126,24 @@ export const sessions: Session[] = [
 
   // Wednesday 19
   {
-    title: "Challenge 2: Prediction Markets",
+    title: "Prediction Markets",
     date: "2025-11-19",
     startTime: "10:00",
     endTime: "11:00",
     description:
-      "Build a prediction market application. Learn about oracle integration, betting mechanisms, and market resolution systems.",
+      "Build your own prediction market and understand how these powerful tools aggregate wisdom from crowds. This SpeedRunEthereum challenge walks you through implementing betting mechanisms, oracle integration for real-world data, and automated resolution systems.",
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.CHALLENGE,
     speaker: SPEAKERS.PHILIP,
   },
   {
-    title: "Challenge 3: ZK",
+    title: "Zero-Knowledge Proofs",
     date: "2025-11-19",
     startTime: "11:30",
     endTime: "12:30",
     description:
-      "Explore Zero-Knowledge proofs and privacy-preserving applications. Build ZK circuits and understand the future of private computation.",
+      "Explore the world of Zero-Knowledge proofs and privacy-preserving computation. This SpeedRunEthereum challenge guides you through implementing ZK circuits, understanding proof generation and verification, and building applications that can prove knowledge without revealing secrets.",
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.CHALLENGE,
@@ -154,19 +154,19 @@ export const sessions: Session[] = [
     startTime: "14:00",
     endTime: "15:00",
     description:
-      "A non-coder/vibe-coder approach to building on Ethereum. Learn how AI tools can accelerate your development process.",
+      "Discover how AI can accelerate your Ethereum development in this beginner-friendly workshop. Perfect for non-coders and casual developers, you'll learn to leverage AI tools like ChatGPT, Cursor, and specialized AI assistants to build sophisticated dApps without deep technical expertise.",
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.WORKSHOP,
     speaker: SPEAKERS.PABLO,
   },
   {
-    title: "Live vibe coding (game + play)",
+    title: "Play a vibe coded game",
     date: "2025-11-19",
     startTime: "15:30",
     endTime: "16:30",
     description:
-      "Let's vibe code a game together and play with the audience. Interactive coding session with real-time audience participation.",
+      "Join Austin for an entertaining and educational live coding adventure! We'll collaboratively build an onchain game from scratch with real-time input from the audience. Watch the development process unfold, suggest features, and immediately play what we create together.",
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.WORKSHOP,
@@ -178,7 +178,7 @@ export const sessions: Session[] = [
     startTime: "16:30",
     endTime: "17:30",
     description:
-      "Get direct guidance, code reviews, and mentorship from BuidlGuidl members. Ask questions and get personalized help with your projects.",
+      "Get personalized guidance from experienced BuidlGuidl builders in this interactive mentoring session. Whether you're stuck on a coding challenge, need a code review, or want strategic advice on your project direction, our mentors are here to help. Bring your questions, your code, and your ideas.",
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.OFFICE_HOURS,
@@ -191,19 +191,19 @@ export const sessions: Session[] = [
     startTime: "10:00",
     endTime: "11:00",
     description:
-      "Build applications for the Farcaster protocol. Learn about decentralized social media and Frame development.",
+      "Learn to build Farcaster miniapps and Frames that bring Ethereum functionality directly into social feeds. This hands-on workshop covers the Farcaster protocol, Frame development, and how to create engaging social experiences that interact with Ethereum.",
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.WORKSHOP,
     speaker: SPEAKERS.HORSEFACTS,
   },
   {
-    title: "PMfers live / Interview / Panel",
+    title: "PMfers live / Panel",
     date: "2025-11-20",
     startTime: "11:30",
     endTime: "12:30",
     description:
-      "Let's bring someone interesting to talk about education / developer onboarding / landing your first job / your onchain career.",
+      "Join us for an inspiring panel discussion about building your career in Web3! We'll bring in special guests to share insights about developer education, breaking into the Ethereum industry, landing your first Web3 job, and building a successful onchain career.",
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.PANEL,
@@ -215,7 +215,7 @@ export const sessions: Session[] = [
     startTime: "14:30",
     endTime: "18:00",
     description:
-      "Test your skills in a competitive Capture the Flag challenge. Solve puzzles, find vulnerabilities, and compete with other developers.",
+      "Tackle 12 increasingly challenging Solidity puzzles in this high-stakes Capture the Flag competition! Form teams and compete for $5,000 in prizes as you hunt for vulnerabilities, exploit smart contract weaknesses, and solve cryptographic challenges.",
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.CTF,
@@ -224,24 +224,24 @@ export const sessions: Session[] = [
 
   // Friday 21
   {
-    title: "Students / Companies fair (Shyam)",
+    title: "Students & Companies fair",
     date: "2025-11-21",
     startTime: "10:00",
     endTime: "13:00",
     description:
-      "A meetup space for students and companies. Student project pitches, Companies lightning talks, Panel, Networking. Shyam working on the programming.",
+      "Connect, showcase, and network at this career fair designed for the next generation of Ethereum talent! Students will pitch their ideas, companies will deliver lightning talks about opportunities, and everyone will participate in networking sessions and panel discussions.",
     dayOfWeek: "Friday",
     dateString: "November 21",
     type: SessionType.STUDENTS,
     speaker: SPEAKERS.SHYAM,
   },
   {
-    title: "Founder speed dating / Pitch your idea",
+    title: "Founder Speed Dating",
     date: "2025-11-21",
     startTime: "14:00",
     endTime: "15:30",
     description:
-      "Meet potential co-founders, teammates, or collaborators. Pitch your ideas and find your next business partner.",
+      "Find your perfect co-founder in this fast-paced networking session! Rotate through quick 5-minute conversations with fellow entrepreneurs, developers, and visionaries. Pitch your ideas, discover complementary skills, and make the connections that could launch your next Ethereum venture.",
     dayOfWeek: "Friday",
     dateString: "November 21",
     type: SessionType.PANEL,
@@ -252,7 +252,7 @@ export const sessions: Session[] = [
     startTime: "16:00",
     endTime: "17:30",
     description:
-      "Learn how to leverage Scaffold-ETH 2 for your ETH Global hackathon projects. Get tips, tricks, and BG office hours support.",
+      "Maximize your hackathon success with Scaffold-ETH 2! This workshop is specifically designed for ETH Global participants, covering advanced SE-2 techniques and rapid prototyping strategies. Learn how to build & deploy faster and access ongoing BuidlGuidl office hours support during your hackathon journey.",
     dayOfWeek: "Friday",
     dateString: "November 21",
     type: SessionType.WORKSHOP,
