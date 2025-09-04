@@ -32,34 +32,29 @@ export const ScheduleCalendar = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto p-4 sm:p-6 overflow-x-auto">
-      {/* Header with day names */}
       <div className="flex gap-2 sm:gap-4 mb-6 min-w-[800px]">
         <div className="w-8 text-sm font-medium text-base-content/60"></div>
         {days.map(day => {
           const { dayOfWeek, dateString } = getDayInfo(day);
           return (
             <div key={day} className="flex-1 text-center">
-              <h2 className="text-lg font-bold text-primary">{dayOfWeek}</h2>
-              <p className="text-sm text-base-content/70">{dateString}</p>
+              <h2 className="text-lg font-bold text-primary m-0">{dayOfWeek}</h2>
+              <p className="text-sm text-base-content/70 m-0">{dateString}</p>
             </div>
           );
         })}
       </div>
 
-      {/* Time grid container */}
       <div className="relative min-w-[800px]">
-        {/* Time grid background */}
         <div className="flex gap-2 sm:gap-4">
-          {/* Time column */}
           <div className="w-12 space-y-0">
             {timeSlots.map(timeSlot => (
               <div key={timeSlot.time24} className="h-16 border-b border-base-300 flex items-start pt-1">
-                <span className="text-sm font-medium text-base-content/60">{timeSlot.time12}</span>
+                <span className="text-sm font-medium text-base-content/70">{timeSlot.time12}</span>
               </div>
             ))}
           </div>
 
-          {/* Day columns */}
           {days.map(day => (
             <div key={day} className="flex-1 relative space-y-0">
               {timeSlots.map(timeSlot => (
@@ -69,12 +64,9 @@ export const ScheduleCalendar = () => {
           ))}
         </div>
 
-        {/* Positioned sessions overlay */}
         <div className="absolute inset-0 flex gap-2 sm:gap-4">
-          {/* Skip time column */}
           <div className="w-12"></div>
 
-          {/* Session overlays for each day */}
           {days.map(day => {
             const daySessions = getSessionsForDay(day);
 
