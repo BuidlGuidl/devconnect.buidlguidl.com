@@ -52,7 +52,7 @@ export const SPEAKERS = {
   },
   ELLIOT: {
     name: "Elliott Alexander",
-    image: "/speakers/elliot.png",
+    image: "/speakers/elliott.png",
   },
   HORSEFACTS: {
     name: "Horsefacts",

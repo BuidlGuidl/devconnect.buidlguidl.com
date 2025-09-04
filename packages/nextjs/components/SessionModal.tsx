@@ -14,7 +14,7 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
 
   return (
     <div className={`modal ${isOpen ? "modal-open" : ""}`}>
-      <div className="modal-box max-w-2xl">
+      <div className="modal-box max-w-2xl bg-[#331230]">
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="font-bold text-lg text-primary mb-0">{session.title}</h3>
@@ -37,9 +37,9 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
               {formatTo12Hour(session.startTime)} - {formatTo12Hour(session.endTime)}
             </p>
           </div>
-          <button className="btn btn-lg btn-circle btn-ghost" onClick={onClose}>
+          <span onClick={onClose} className="text-2xl cursor-pointer">
             ✕
-          </button>
+          </span>
         </div>
 
         <div className="divider"></div>
