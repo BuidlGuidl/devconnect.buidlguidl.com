@@ -99,8 +99,9 @@ export const ScheduleCalendar = () => {
                           <h3 className="font-semibold text-sm leading-tight mb-1">{session.title}</h3>
                         </div>
                         <div>
-                          <p className="text-xs opacity-75">
-                            {formatTo12Hour(session.startTime)} - {formatTo12Hour(session.endTime)}
+                          <p className="text-xs opacity-75 m-0">
+                            {formatTo12Hour(session.startTime)} - {formatTo12Hour(session.endTime)}{" "}
+                            {session.speaker && <span className="font-bold">- {session.speaker.name}</span>}
                           </p>
                         </div>
                       </div>
