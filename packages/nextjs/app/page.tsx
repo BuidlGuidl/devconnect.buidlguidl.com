@@ -25,10 +25,10 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="flex items-center flex-col grow pt-10">
+      <div className="flex items-center flex-col grow pt-10 bg-gradient-to-r from-black via-gray-900 to-black">
         <div className="px-5 mb-8">
           <h1 className="text-center">
-            <span className="block text-4xl font-bold text-black">Buidlguidl&apos;s Builder Bootcamp</span>
+            <span className="block text-4xl font-bold text-primary">Buidlguidl&apos;s Builder Bootcamp</span>
             <span className="block text-lg text-base-content/70">Beginner to Advanced</span>
           </h1>
 
