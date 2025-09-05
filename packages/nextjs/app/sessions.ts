@@ -34,6 +34,10 @@ export const sessionTypeColors = {
 };
 
 export const SPEAKERS = {
+  PATRICK: {
+    name: "Patrick McCorry",
+    image: "/speakers/patrick.jpg",
+  },
   AUSTIN: {
     name: "Austin Griffith",
     image: "/speakers/austin.png",
@@ -67,21 +71,22 @@ export const SPEAKERS = {
 export const sessions: Session[] = [
   // Tuesday 18
   {
-    title: "Why build on Ethereum",
+    title: "Why is Ethereum interesting and how does it work?",
     date: "2025-11-18",
     startTime: "10:00",
-    endTime: "11:00",
+    endTime: "11:30",
     description:
-      "Introduction into the Ethereum ecosystem for builders. Learn the fundamentals of Ethereum development and why it's the leading platform for decentralized applications.",
+      "Explore what makes Ethereum fascinating and discover how the blockchain technology actually works. We'll dive into the core concepts, consensus mechanisms, and unique features that make Ethereum the world's most programmable blockchain platform.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
+    speaker: SPEAKERS.PATRICK,
   },
   {
     title: "Build your first dApp on Ethereum",
     date: "2025-11-18",
-    startTime: "11:30",
-    endTime: "12:30",
+    startTime: "12:00",
+    endTime: "13:00",
     description:
       "Jump into Ethereum development with this hands-on workshop! Using Scaffold-ETH 2, you'll build and deploy your very first decentralized application from scratch. By the end of this session, you'll have a working dApp and understand the fundamentals of smart contract development. No prior blockchain experience required.",
     dayOfWeek: "Tuesday",
