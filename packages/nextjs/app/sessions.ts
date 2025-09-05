@@ -159,7 +159,7 @@ export const sessions: Session[] = [
     startTime: "14:00",
     endTime: "15:00",
     description:
-      "Discover how AI can accelerate your Ethereum development in this beginner-friendly workshop. Perfect for non-coders and casual developers, you'll learn to leverage AI tools like ChatGPT, Cursor, and specialized AI assistants to build sophisticated dApps without deep technical expertise.",
+      "Discover how AI can accelerate your Ethereum development in this beginner-friendly workshop. Perfect for non-coders and casual developers, you'll learn to leverage AI tools like ChatGPT, Cursor, Claude Code, and specialized AI tools to build sophisticated dApps without deep technical expertise.",
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.WORKSHOP,
