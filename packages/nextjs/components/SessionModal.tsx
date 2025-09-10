@@ -14,7 +14,7 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
 
   return (
     <div className={`modal ${isOpen ? "modal-open" : ""}`}>
-      <div className="modal-box max-w-2xl bg-[#331230]">
+      <div className="modal-box max-w-2xl bg-[#fff8d5]">
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="font-bold text-lg text-primary mb-0">{session.title}</h3>
