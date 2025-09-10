@@ -25,9 +25,12 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="flex items-center flex-col grow pt-10">
-        <div className="px-5 mb-8">
-          <h1 className="text-center">
+      <div className="flex items-center flex-col grow pt-2">
+        <div>
+          <Image src="/ruler.png" alt="Ruler" width={800} height={40} />
+        </div>
+        <div className="px-5">
+          <h1 className="text-center mt-10">
             <span className="block text-4xl font-bold text-primary">Buidlguidl&apos;s Builder Bootcamp</span>
             <span className="block text-lg text-base-content/70">Beginner to Advanced</span>
           </h1>
@@ -42,7 +45,11 @@ const Home: NextPage = () => {
             <p>📍 Devconnect main venue - Workshop space (Yellow Pavilion) </p>
           </div>
 
-          <div className="flex justify-center text-xl max-w-2xl mx-auto my-8 text-center font-medium">
+          <div className="flex justify-center">
+            <Image src="/eth_lines.png" alt="Ethereum" width={50} height={40} />
+          </div>
+
+          <div className="flex justify-center text-xl max-w-2xl mx-auto mt-4 mb-12 text-center font-medium">
             Join BuidlGuidl in a week-long intensive journey from beginner to advanced Ethereum development. Perfect for
             all skill levels, whether you&apos;re taking your first steps on Ethereum or looking to level up your
             skills.
