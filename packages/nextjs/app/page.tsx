@@ -7,11 +7,11 @@ import { ScheduleCalendar } from "~~/components/ScheduleCalendar";
 const Home: NextPage = () => {
   return (
     <>
-      <div className="w-full bg-gradient-to-r from-black via-gray-900 to-black py-4 md:py-8">
+      <div className="w-full py-4 md:py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 lg:gap-12">
             <div className="flex-shrink-0">
-              <Image src="/logo-bg-white.svg" alt="BuidlGuidl logo" width={200} height={40} />
+              <Image src="/logo-bg.svg" alt="BuidlGuidl logo" width={200} height={40} />
             </div>
 
             <div className="flex-shrink-0">
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="flex items-center flex-col grow pt-10 bg-gradient-to-r from-black via-gray-900 to-black">
+      <div className="flex items-center flex-col grow pt-10">
         <div className="px-5 mb-8">
           <h1 className="text-center">
             <span className="block text-4xl font-bold text-primary">Buidlguidl&apos;s Builder Bootcamp</span>
