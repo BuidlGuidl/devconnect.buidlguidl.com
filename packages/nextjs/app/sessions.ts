@@ -111,7 +111,7 @@ export const sessions: Session[] = [
     startTime: "15:30",
     endTime: "16:30",
     description:
-      "Dive deep into the mechanics of stablecoins. Discover what problems they solve and explore different approaches like overcollateralization. This SpeedRunEthereum challenge will guide you through building your own stablecoin implementation while understanding the economic principles that keep these digital assets stable.",
+      "Dive deep into the mechanics of decentralized algorithmic stablecoins and explore how they maintain price stability. Discover the critical role of over-collateralization in protecting against volatility and collapse. Then, put theory into practice with a guided SpeedRunEthereum challenge that demonstrates how economic principles and incentive design can keep digital assets stable in real-world conditions.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.CHALLENGE,
