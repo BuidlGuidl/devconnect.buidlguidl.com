@@ -19,15 +19,20 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
           <div>
             <h3 className="font-bold text-lg text-primary mb-0">{session.title}</h3>
             {session.speaker && (
-              <div className="flex items-center gap-2">
-                <Image
-                  src={session.speaker.image}
-                  alt={session.speaker.name}
-                  width={32}
-                  height={32}
-                  className="rounded-full"
-                />
-                <p className="font-bold">{session.speaker.name}</p>
+              <div className="flex items-center gap-6">
+                {session.speaker.map(speaker => (
+                  <div key={speaker.name} className="flex items-center gap-2">
+                    <Image
+                      key={speaker.name}
+                      src={speaker.image}
+                      alt={speaker.name}
+                      width={32}
+                      height={32}
+                      className="rounded-full"
+                    />
+                    <p className="font-bold">{speaker.name}</p>
+                  </div>
+                ))}
               </div>
             )}
             <p className="text-sm text-base-content/70 m-0">

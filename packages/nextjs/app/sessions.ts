@@ -21,7 +21,7 @@ export interface Session {
   dayOfWeek: string;
   dateString: string;
   type: SessionType;
-  speaker?: Speaker;
+  speaker?: Speaker[];
 }
 
 export const sessionTypeColors = {
@@ -92,7 +92,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
-    speaker: SPEAKERS.PATRICK,
+    speaker: [SPEAKERS.PATRICK],
   },
   {
     title: "Build your first dApp on Ethereum",
@@ -104,7 +104,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
-    speaker: SPEAKERS.AUSTIN,
+    speaker: [SPEAKERS.AUSTIN],
   },
   {
     title: "Introduction to SpeedRunEthereum",
@@ -116,6 +116,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
+    speaker: [SPEAKERS.AUSTIN],
   },
   {
     title: "Stablecoins",
@@ -127,7 +128,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.CHALLENGE,
-    speaker: SPEAKERS.ELLIOT,
+    speaker: [SPEAKERS.ELLIOT],
   },
   {
     title: "BG Office hours / Mentoring",
@@ -152,7 +153,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.CHALLENGE,
-    speaker: SPEAKERS.EDA,
+    speaker: [SPEAKERS.EDA],
   },
   {
     title: "Zero-Knowledge Proofs",
@@ -164,7 +165,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.CHALLENGE,
-    speaker: SPEAKERS.PHILIP,
+    speaker: [SPEAKERS.PHILIP],
   },
   {
     title: "Leveraging AI to build on Ethereum",
@@ -176,7 +177,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.WORKSHOP,
-    speaker: SPEAKERS.PABLO,
+    speaker: [SPEAKERS.PABLO],
   },
   {
     title: "Play a vibe coded game",
@@ -188,7 +189,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.WORKSHOP,
-    speaker: SPEAKERS.AUSTIN,
+    speaker: [SPEAKERS.AUSTIN],
   },
   {
     title: "BG Office hours / Mentoring",
@@ -204,7 +205,7 @@ export const sessions: Session[] = [
 
   // Thursday 20
   {
-    title: "Farcaster Miniapp (horsefacts)",
+    title: "Farcaster Miniapps",
     date: "2025-11-20",
     startTime: "10:00",
     endTime: "11:00",
@@ -213,7 +214,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.WORKSHOP,
-    speaker: SPEAKERS.HORSEFACTS,
+    speaker: [SPEAKERS.HORSEFACTS],
   },
   {
     title: "Run your own Ethereum node",
@@ -225,7 +226,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.WORKSHOP,
-    speaker: SPEAKERS.SPENCER,
+    speaker: [SPEAKERS.SPENCER],
   },
   {
     title: "PMfers live",
@@ -237,7 +238,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.PANEL,
-    speaker: SPEAKERS.AUSTIN,
+    speaker: [SPEAKERS.AUSTIN],
   },
   {
     title: "Capture the Flag",
@@ -249,7 +250,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.CTF,
-    speaker: SPEAKERS.CARLOS,
+    speaker: [SPEAKERS.CARLOS],
   },
 
   // Friday 21
@@ -263,7 +264,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Friday",
     dateString: "November 21",
     type: SessionType.STUDENTS,
-    speaker: SPEAKERS.SHYAM,
+    speaker: [SPEAKERS.SHYAM],
   },
   {
     title: "Founder Speed Dating",
@@ -275,7 +276,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Friday",
     dateString: "November 21",
     type: SessionType.PANEL,
-    speaker: SPEAKERS.KEVIN,
+    speaker: [SPEAKERS.AUSTIN, SPEAKERS.KEVIN],
   },
   {
     title: "Use Scaffold-ETH for your ETH Global Hackathon",
@@ -287,6 +288,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Friday",
     dateString: "November 21",
     type: SessionType.WORKSHOP,
+    speaker: [SPEAKERS.AUSTIN],
   },
 ];
 
