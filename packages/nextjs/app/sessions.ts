@@ -21,16 +21,16 @@ export interface Session {
   dayOfWeek: string;
   dateString: string;
   type: SessionType;
-  speaker?: Speaker;
+  speaker?: Speaker[];
 }
 
 export const sessionTypeColors = {
-  [SessionType.WORKSHOP]: "bg-blue-300 border-blue-300",
-  [SessionType.OFFICE_HOURS]: "bg-green-300 border-green-300",
-  [SessionType.PANEL]: "bg-purple-300 border-purple-300",
-  [SessionType.CTF]: "bg-red-300 border-red-300",
-  [SessionType.STUDENTS]: "bg-orange-300 border-orange-300",
-  [SessionType.CHALLENGE]: "bg-indigo-300 border-indigo-300",
+  [SessionType.WORKSHOP]: "bg-blue-300",
+  [SessionType.OFFICE_HOURS]: "bg-green-300",
+  [SessionType.PANEL]: "bg-purple-300",
+  [SessionType.CTF]: "bg-red-300",
+  [SessionType.STUDENTS]: "bg-orange-300",
+  [SessionType.CHALLENGE]: "bg-indigo-300",
 };
 
 export const SPEAKERS = {
@@ -66,6 +66,18 @@ export const SPEAKERS = {
     name: "Shyam",
     image: "/speakers/shyam.jpg",
   },
+  EDA: {
+    name: "Eda Akturk",
+    image: "/speakers/eda.jpg",
+  },
+  KEVIN: {
+    name: "Kevin Jones",
+    image: "/speakers/kevin.jpg",
+  },
+  SPENCER: {
+    name: "Spencer Faber",
+    image: "/speakers/spencer.jpg",
+  },
 };
 
 export const sessions: Session[] = [
@@ -80,7 +92,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
-    speaker: SPEAKERS.PATRICK,
+    speaker: [SPEAKERS.PATRICK],
   },
   {
     title: "Build your first dApp on Ethereum",
@@ -92,7 +104,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
-    speaker: SPEAKERS.AUSTIN,
+    speaker: [SPEAKERS.AUSTIN],
   },
   {
     title: "Introduction to SpeedRunEthereum",
@@ -104,6 +116,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
+    speaker: [SPEAKERS.AUSTIN],
   },
   {
     title: "Stablecoins",
@@ -115,7 +128,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.CHALLENGE,
-    speaker: SPEAKERS.ELLIOT,
+    speaker: [SPEAKERS.ELLIOT],
   },
   {
     title: "BG Office hours / Mentoring",
@@ -140,7 +153,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.CHALLENGE,
-    speaker: SPEAKERS.PHILIP,
+    speaker: [SPEAKERS.EDA],
   },
   {
     title: "Zero-Knowledge Proofs",
@@ -152,6 +165,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.CHALLENGE,
+    speaker: [SPEAKERS.PHILIP],
   },
   {
     title: "Leveraging AI to build on Ethereum",
@@ -163,7 +177,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.WORKSHOP,
-    speaker: SPEAKERS.PABLO,
+    speaker: [SPEAKERS.PABLO],
   },
   {
     title: "Play a vibe coded game",
@@ -175,7 +189,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.WORKSHOP,
-    speaker: SPEAKERS.AUSTIN,
+    speaker: [SPEAKERS.AUSTIN],
   },
   {
     title: "BG Office hours / Mentoring",
@@ -191,7 +205,7 @@ export const sessions: Session[] = [
 
   // Thursday 20
   {
-    title: "Farcaster Miniapp (horsefacts)",
+    title: "Farcaster Miniapps",
     date: "2025-11-20",
     startTime: "10:00",
     endTime: "11:00",
@@ -200,31 +214,43 @@ export const sessions: Session[] = [
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.WORKSHOP,
-    speaker: SPEAKERS.HORSEFACTS,
+    speaker: [SPEAKERS.HORSEFACTS],
   },
   {
-    title: "PMfers live / Panel",
+    title: "Run your own Ethereum node",
     date: "2025-11-20",
-    startTime: "11:30",
-    endTime: "12:30",
+    startTime: "11:00",
+    endTime: "11:45",
+    description:
+      "Take control of your Ethereum experience by running your own node! Discover why node operators are the backbone of decentralization, learn the difference between execution and consensus clients, and walk through the complete setup process. We'll cover hardware requirements, client selection, and best practices for maintaining a secure, synced node that gives you trustless access to the Ethereum network.",
+    dayOfWeek: "Thursday",
+    dateString: "November 20",
+    type: SessionType.WORKSHOP,
+    speaker: [SPEAKERS.SPENCER],
+  },
+  {
+    title: "PMfers live",
+    date: "2025-11-20",
+    startTime: "12:00",
+    endTime: "13:00",
     description:
       "Join us for an inspiring panel discussion about building your career in Web3! We'll bring in special guests to share insights about developer education, breaking into the Ethereum industry, landing your first Web3 job, and building a successful onchain career.",
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.PANEL,
-    speaker: SPEAKERS.AUSTIN,
+    speaker: [SPEAKERS.AUSTIN],
   },
   {
     title: "Capture the Flag",
     date: "2025-11-20",
-    startTime: "14:30",
-    endTime: "18:00",
+    startTime: "14:00",
+    endTime: "17:30",
     description:
       "Tackle 12 increasingly challenging Solidity puzzles in this high-stakes Capture the Flag competition! Form teams and compete for $5,000 in prizes as you hunt for vulnerabilities, exploit smart contract weaknesses, and solve cryptographic challenges.",
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.CTF,
-    speaker: SPEAKERS.CARLOS,
+    speaker: [SPEAKERS.CARLOS],
   },
 
   // Friday 21
@@ -238,7 +264,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Friday",
     dateString: "November 21",
     type: SessionType.STUDENTS,
-    speaker: SPEAKERS.SHYAM,
+    speaker: [SPEAKERS.SHYAM],
   },
   {
     title: "Founder Speed Dating",
@@ -250,6 +276,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Friday",
     dateString: "November 21",
     type: SessionType.PANEL,
+    speaker: [SPEAKERS.AUSTIN, SPEAKERS.KEVIN],
   },
   {
     title: "Use Scaffold-ETH for your ETH Global Hackathon",
@@ -261,6 +288,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Friday",
     dateString: "November 21",
     type: SessionType.WORKSHOP,
+    speaker: [SPEAKERS.AUSTIN],
   },
 ];
 
@@ -284,7 +312,7 @@ export const getHourlyTimeSlots = () => {
 
 export const getHourlyTimeSlotsFormatted = () => {
   const hours = [];
-  for (let hour = 10; hour <= 18; hour++) {
+  for (let hour = 10; hour <= 17; hour++) {
     const time24 = `${hour.toString().padStart(2, "0")}:00`;
     hours.push({
       time24: time24,
