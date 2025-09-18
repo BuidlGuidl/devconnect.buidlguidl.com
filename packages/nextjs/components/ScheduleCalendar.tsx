@@ -79,7 +79,7 @@ export const ScheduleCalendar = () => {
                   return (
                     <div
                       key={session.title}
-                      className={`absolute left-0 right-0 ${colors} border cursor-pointer hover:shadow-md transition-shadow p-2 z-10`}
+                      className={`absolute left-0 right-0 ${colors} outline outline-2 outline-black/60 cursor-pointer hover:shadow-md transition-shadow p-2 z-10`}
                       style={{
                         top: `${position.startOffset}px`,
                         height: `${position.duration}px`,
