@@ -21,7 +21,7 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
         className="flex flex-col min-h-screen bg-no-repeat bg-cover bg-center"
         style={{
           backgroundImage:
-            "linear-gradient(to bottom, rgba(246, 180, 14, 0.9), rgba(207, 207, 207, 0.9)), url('/bg_lines.png')",
+            "linear-gradient(to bottom, rgba(246, 180, 14, 0.75) 10%, rgba(207, 207, 207, 0.8) 85%), url('/bg_lines.png')",
         }}
       >
         <main className="relative flex flex-col flex-1">{children}</main>
