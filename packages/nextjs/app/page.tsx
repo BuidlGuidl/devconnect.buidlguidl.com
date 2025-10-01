@@ -9,7 +9,10 @@ const Home: NextPage = () => {
     <>
       <div className="flex items-center flex-col grow pt-2">
         <div className="px-5">
-          <h1 className="text-center mt-16 md:mt-24">
+          <div className="flex justify-center mt-14 md:mt-12">
+            <Image src="/icons.svg" alt="Icons" width={100} height={40} />
+          </div>
+          <h1 className="text-center mt-8 lg:mt-16">
             <span className="block text-7xl lg:text-8xl font-bold text-primary font-neuebit">
               Buidlguidl&apos;s Builder Bootcamp
             </span>
@@ -18,7 +21,7 @@ const Home: NextPage = () => {
             </span>
           </h1>
 
-          <div className="w-full py-6 md:py-8 mb-12 md:mb-16">
+          <div className="w-full py-6 md:py-8 mb-10 md:mb-16">
             <div className="container mx-auto px-4">
               <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
                 <div className="flex-shrink-0">
@@ -36,7 +39,7 @@ const Home: NextPage = () => {
             </div>
           </div>
 
-          <div className="text-center mt-6">
+          <div className="text-center">
             <p className="text-lg mb-2 font-orbit">
               📅 November 18-21, 2025 @{" "}
               <a href="https://devconnect.org/" target="_blank" rel="noopener noreferrer" className="link">
@@ -50,7 +53,7 @@ const Home: NextPage = () => {
             <Image src="/ruler.png" alt="Ruler" width={800} height={40} />
           </div>
 
-          <div className="flex justify-center text-xl max-w-2xl mx-auto mt-4 mb-12 text-center font-normal">
+          <div className="flex justify-center text-lg max-w-2xl mx-auto mt-4 mb-12 text-center font-orbit">
             Join BuidlGuidl in a week-long intensive journey from beginner to advanced Ethereum development. Perfect for
             all skill levels, whether you&apos;re taking your first steps on Ethereum or looking to level up your
             skills.
