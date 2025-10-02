@@ -10,6 +10,8 @@ const orbit = Orbit({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-orbit",
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 const neueBit = localFont({
