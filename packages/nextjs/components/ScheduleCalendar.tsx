@@ -38,8 +38,8 @@ export const ScheduleCalendar = () => {
           const { dayOfWeek, dateString } = getDayInfo(day);
           return (
             <div key={day} className="flex-1 text-center">
-              <h2 className="text-lg font-bold text-primary m-0">{dayOfWeek}</h2>
-              <p className="text-sm text-base-content/70 m-0">{dateString}</p>
+              <h2 className="text-lg font-bold text-primary m-0 font-orbit">{dayOfWeek}</h2>
+              <p className="text-sm text-base-content/70 m-0 font-orbit">{dateString}</p>
             </div>
           );
         })}
@@ -50,7 +50,7 @@ export const ScheduleCalendar = () => {
           <div className="w-12 space-y-0">
             {timeSlots.map(timeSlot => (
               <div key={timeSlot.time24} className="h-16 border-b border-base-300 flex items-start pt-1">
-                <span className="text-sm font-medium text-base-content/70">{timeSlot.time12}</span>
+                <span className="text-sm font-medium text-base-content/70 font-orbit">{timeSlot.time12}</span>
               </div>
             ))}
           </div>
@@ -88,10 +88,10 @@ export const ScheduleCalendar = () => {
                     >
                       <div className="h-full flex flex-col justify-between">
                         <div>
-                          <h3 className="font-semibold text-sm leading-tight mb-1">{session.title}</h3>
+                          <h3 className="font-semibold text-sm leading-tight mb-1 font-orbit">{session.title}</h3>
                         </div>
                         <div>
-                          <p className="text-xs opacity-75 m-0">
+                          <p className="text-xs opacity-75 m-0 font-orbit">
                             {formatTo12Hour(session.startTime)} - {formatTo12Hour(session.endTime)}{" "}
                             {session.speaker && (
                               <span className="font-bold">
