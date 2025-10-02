@@ -25,12 +25,12 @@ export interface Session {
 }
 
 export const sessionTypeColors = {
-  [SessionType.WORKSHOP]: "bg-blue-300",
-  [SessionType.OFFICE_HOURS]: "bg-green-300",
-  [SessionType.PANEL]: "bg-purple-300",
-  [SessionType.CTF]: "bg-red-300",
-  [SessionType.STUDENTS]: "bg-orange-300",
-  [SessionType.CHALLENGE]: "bg-indigo-300",
+  [SessionType.WORKSHOP]: { backgroundColor: "#73B4F0" }, //blue
+  [SessionType.OFFICE_HOURS]: { backgroundColor: "#D0FF73" }, //green
+  [SessionType.PANEL]: { backgroundColor: "#B2A0FF" }, //purple
+  [SessionType.CTF]: { backgroundColor: "#FF85A6" }, //pink
+  [SessionType.STUDENTS]: { backgroundColor: "#FFC83D" }, //yellow
+  [SessionType.CHALLENGE]: { backgroundColor: "#F4A0FF" }, //purplish pink
 };
 
 export const SPEAKERS = {
