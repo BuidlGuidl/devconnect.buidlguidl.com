@@ -57,6 +57,9 @@ const Home: NextPage = () => {
         </div>
 
         <div className="w-full">
+          <div className="flex justify-center mb-14">
+            <Image src="/icons.svg" alt="Icons" width={100} height={120} className="max-w-full h-auto" />
+          </div>
           <ScheduleCalendar />
         </div>
       </div>
