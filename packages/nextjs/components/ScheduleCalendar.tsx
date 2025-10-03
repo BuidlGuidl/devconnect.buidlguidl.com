@@ -49,7 +49,7 @@ export const ScheduleCalendar = () => {
         <div className="flex gap-2 sm:gap-4">
           <div className="w-12 space-y-0">
             {timeSlots.map(timeSlot => (
-              <div key={timeSlot.time24} className="h-16 border-b border-base-300 flex items-start pt-1">
+              <div key={timeSlot.time24} className="h-20 border-b border-base-300 flex items-start pt-1">
                 <span className="text-sm font-medium text-base-content/70 font-orbit">{timeSlot.time12}</span>
               </div>
             ))}
@@ -58,7 +58,7 @@ export const ScheduleCalendar = () => {
           {days.map(day => (
             <div key={day} className="flex-1 relative space-y-0">
               {timeSlots.map(timeSlot => (
-                <div key={timeSlot.time24} className="h-16 border-b border-black/20"></div>
+                <div key={timeSlot.time24} className="h-20 border-b border-black/20"></div>
               ))}
             </div>
           ))}
@@ -88,7 +88,7 @@ export const ScheduleCalendar = () => {
                     >
                       <div className="h-full flex flex-col justify-between">
                         <div>
-                          <h3 className="font-semibold text-sm leading-tight mb-1 font-orbit">{session.title}</h3>
+                          <h3 className="font-semibold text-md leading-tight mb-1 font-orbit">{session.title}</h3>
                         </div>
                         <div>
                           <p className="text-xs opacity-75 m-0 font-orbit">
