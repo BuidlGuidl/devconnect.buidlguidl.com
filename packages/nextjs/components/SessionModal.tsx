@@ -12,9 +12,19 @@ interface SessionModalProps {
 export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) => {
   if (!session) return null;
 
+  // Solid lighter versions of the session colors
+  const lightColors = {
+    workshop: "#B8D4F7", // light blue
+    office_hours: "#FFB8D1", // light pink
+    panel: "#F4D0FF", // light purplish pink
+    ctf: "#E8FFB8", // light green
+    students: "#FFE4A0", // light yellow
+    challenge: "#D4B0FF", // light purple
+  };
+
   return (
     <div className={`modal ${isOpen ? "modal-open" : ""}`}>
-      <div className="modal-box max-w-2xl bg-[#fff8d5]">
+      <div className="modal-box max-w-2xl" style={{ backgroundColor: lightColors[session.type] }}>
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="font-bold text-lg text-primary mb-0 font-orbit">{session.title}</h3>
