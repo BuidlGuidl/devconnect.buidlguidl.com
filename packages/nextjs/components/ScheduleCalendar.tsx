@@ -31,7 +31,7 @@ export const ScheduleCalendar = () => {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-4 sm:p-6 overflow-x-auto bg-white/60">
+    <div className="w-full max-w-7xl mx-auto p-4 sm:p-6 overflow-x-auto bg-white/40 rounded-xl">
       <div className="flex gap-2 sm:gap-4 mb-6 min-w-[800px]">
         <div className="w-8 text-sm font-medium text-base-content/60"></div>
         {days.map(day => {
@@ -49,7 +49,7 @@ export const ScheduleCalendar = () => {
         <div className="flex gap-2 sm:gap-4">
           <div className="w-12 space-y-0">
             {timeSlots.map(timeSlot => (
-              <div key={timeSlot.time24} className="h-16 border-b border-base-300 flex items-start pt-1">
+              <div key={timeSlot.time24} className="h-20 border-b border-base-300 flex items-start pt-1">
                 <span className="text-sm font-medium text-base-content/70">{timeSlot.time12}</span>
               </div>
             ))}
@@ -58,7 +58,7 @@ export const ScheduleCalendar = () => {
           {days.map(day => (
             <div key={day} className="flex-1 relative space-y-0">
               {timeSlots.map(timeSlot => (
-                <div key={timeSlot.time24} className="h-16 border-b border-black/20"></div>
+                <div key={timeSlot.time24} className="h-20 border-b border-black/20"></div>
               ))}
             </div>
           ))}
@@ -75,15 +75,15 @@ export const ScheduleCalendar = () => {
                 {daySessions.map(session => {
                   const position = getSessionPosition(session);
                   const colors = sessionTypeColors[session.type];
+                  const className =
+                    "absolute left-0 right-0 outline outline-2 outline-gray-300 rounded-lg cursor-pointer hover:shadow-md transition-shadow p-2 z-10";
+                  const style = { ...colors, top: `${position.startOffset}px`, height: `${position.duration}px` };
 
                   return (
                     <div
                       key={session.title}
-                      className={`absolute left-0 right-0 ${colors} outline outline-2 outline-black/60 cursor-pointer hover:shadow-md transition-shadow p-2 z-10`}
-                      style={{
-                        top: `${position.startOffset}px`,
-                        height: `${position.duration}px`,
-                      }}
+                      className={className}
+                      style={style}
                       onClick={() => handleSessionClick(session)}
                     >
                       <div className="h-full flex flex-col justify-between">

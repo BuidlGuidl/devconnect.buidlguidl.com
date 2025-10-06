@@ -25,12 +25,12 @@ export interface Session {
 }
 
 export const sessionTypeColors = {
-  [SessionType.WORKSHOP]: "bg-blue-300",
-  [SessionType.OFFICE_HOURS]: "bg-green-300",
-  [SessionType.PANEL]: "bg-purple-300",
-  [SessionType.CTF]: "bg-red-300",
-  [SessionType.STUDENTS]: "bg-orange-300",
-  [SessionType.CHALLENGE]: "bg-indigo-300",
+  [SessionType.WORKSHOP]: { backgroundColor: "#73B4F0" }, //blue
+  [SessionType.OFFICE_HOURS]: { backgroundColor: "#FF85A6" }, //pink
+  [SessionType.PANEL]: { backgroundColor: "#F4A0FF" }, //purplish pink
+  [SessionType.CTF]: { backgroundColor: "#D0FF73" }, //green
+  [SessionType.STUDENTS]: { backgroundColor: "#FFC83D" }, //yellow
+  [SessionType.CHALLENGE]: { backgroundColor: "#B2A0FF" }, //purple
 };
 
 export const SPEAKERS = {
@@ -336,8 +336,8 @@ export const getSessionPosition = (session: Session) => {
   const startOffsetMinutes = startMinutes - gridStartMinutes;
   const durationMinutes = endMinutes - startMinutes;
 
-  // Each hour = 64px, so each minute = 64/60 px
-  const pixelsPerMinute = 64 / 60;
+  // Each hour = 80px, so each minute = 80/60 px
+  const pixelsPerMinute = 80 / 60;
 
   return {
     startRow: Math.floor(startOffsetMinutes / 60) + 1, // which hour row
