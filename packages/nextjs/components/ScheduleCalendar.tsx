@@ -88,7 +88,7 @@ export const ScheduleCalendar = () => {
                     >
                       <div className="h-full flex flex-col justify-between">
                         <div>
-                          <h3 className="font-semibold text-md leading-tight mb-1">{session.title}</h3>
+                          <h3 className="font-semibold text-sm leading-tight mb-1">{session.title}</h3>
                         </div>
                         <div>
                           <p className="text-xs opacity-75 m-0">
