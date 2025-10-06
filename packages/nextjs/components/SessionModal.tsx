@@ -20,6 +20,7 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
     ctf: "#E8FFB8", // light green
     students: "#FFE4A0", // light yellow
     challenge: "#D4B0FF", // light purple
+    talk: "#C7EBD9", // light greenish
   };
 
   return (

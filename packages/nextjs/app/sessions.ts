@@ -5,6 +5,7 @@ export enum SessionType {
   CTF = "ctf",
   STUDENTS = "students",
   CHALLENGE = "challenge",
+  TALK = "talk",
 }
 
 export type Speaker = {
@@ -31,6 +32,7 @@ export const sessionTypeColors = {
   [SessionType.CTF]: { backgroundColor: "#D0FF73" }, //green
   [SessionType.STUDENTS]: { backgroundColor: "#FFC83D" }, //yellow
   [SessionType.CHALLENGE]: { backgroundColor: "#B2A0FF" }, //purple
+  [SessionType.TALK]: { backgroundColor: "#8FD9B8" }, //greenish
 };
 
 export const SPEAKERS = {
@@ -77,6 +79,10 @@ export const SPEAKERS = {
   SPENCER: {
     name: "Spencer Faber",
     image: "/speakers/spencer.jpg",
+  },
+  JEFFREY: {
+    name: "Jeffrey Scholz",
+    image: "/speakers/jeffrey.jpg",
   },
 };
 
@@ -180,9 +186,21 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.PABLO],
   },
   {
+    title: "Rareskills is your next step",
+    date: "2025-11-19",
+    startTime: "15:00",
+    endTime: "15:45",
+    description:
+      "Join Jeffrey from Rareskills to discuss your next steps after the speedrun. His ZK Book and Uniswap v4 course are next level.",
+    dayOfWeek: "Wednesday",
+    dateString: "November 19",
+    type: SessionType.TALK,
+    speaker: [SPEAKERS.JEFFREY],
+  },
+  {
     title: "Play a vibe coded game",
     date: "2025-11-19",
-    startTime: "15:30",
+    startTime: "15:45",
     endTime: "16:30",
     description:
       "Join Austin for an entertaining and educational live coding adventure! We'll collaboratively build an onchain game from scratch with real-time input from the audience. Watch the development process unfold, suggest features, and immediately play what we create together.",

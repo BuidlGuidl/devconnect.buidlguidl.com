@@ -21,7 +21,7 @@ const neueBit = localFont({
 });
 
 export const metadata = getMetadata({
-  title: "Buidlguidl's Builder Bootcamp @ Devconnect Argentina",
+  title: "BuidlGuidl's Builder Bootcamp @ Devconnect Argentina",
   description:
     "A week long series of workshops and sessions for builders of any skill level to learn about how to build on Ethereum",
 });
