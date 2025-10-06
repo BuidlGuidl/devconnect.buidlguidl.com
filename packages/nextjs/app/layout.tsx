@@ -29,7 +29,7 @@ export const metadata = getMetadata({
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
   return (
     <html suppressHydrationWarning className={`${orbit.variable} ${neueBit.variable}`}>
-      <body>
+      <body className="font-orbit">
         <ThemeProvider enableSystem={false} defaultTheme="light">
           <ScaffoldEthAppWithProviders>{children}</ScaffoldEthAppWithProviders>
         </ThemeProvider>

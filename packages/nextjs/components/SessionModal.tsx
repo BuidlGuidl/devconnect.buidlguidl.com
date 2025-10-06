@@ -27,7 +27,7 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
       <div className="modal-box max-w-2xl" style={{ backgroundColor: lightColors[session.type] }}>
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h3 className="font-bold text-lg text-primary mb-0 font-orbit">{session.title}</h3>
+            <h3 className="font-bold text-lg text-primary mb-0">{session.title}</h3>
             {session.speaker && (
               <div className="flex items-center gap-6">
                 {session.speaker.map(speaker => (
@@ -40,15 +40,15 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
                       height={32}
                       className="rounded-full"
                     />
-                    <p className="font-bold font-orbit">{speaker.name}</p>
+                    <p className="font-bold">{speaker.name}</p>
                   </div>
                 ))}
               </div>
             )}
-            <p className="text-sm text-base-content/70 m-0 font-orbit">
+            <p className="text-sm text-base-content/70 m-0">
               {session.dayOfWeek}, {session.dateString}
             </p>
-            <p className="text-sm text-base-content/70 mt-0 m-0 font-orbit">
+            <p className="text-sm text-base-content/70 mt-0 m-0">
               {formatTo12Hour(session.startTime)} - {formatTo12Hour(session.endTime)}
             </p>
           </div>
@@ -59,7 +59,7 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
 
         <div className="divider"></div>
 
-        <p className="text-base leading-relaxed font-orbit">{session.description}</p>
+        <p className="text-base leading-relaxed">{session.description}</p>
       </div>
       <div className="modal-backdrop" onClick={onClose}></div>
     </div>
