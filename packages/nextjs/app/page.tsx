@@ -26,7 +26,7 @@ const Home: NextPage = () => {
           </div>
           <h1 className="text-center mt-8 mb-16 lg:mt-12">
             <span className="block text-7xl lg:text-8xl font-bold text-primary font-neuebit">
-              Buidlguidl&apos;s Builder Bootcamp
+              BuidlGuidl&apos;s Builder Bootcamp
             </span>
             <span className="block text-xl md:text-3xl lg:text-2xl text-base-content/80 mt-2">
               Beginner to Advanced
