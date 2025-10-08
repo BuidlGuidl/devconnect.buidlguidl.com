@@ -48,6 +48,10 @@ export const SPEAKERS = {
     name: "Carlos Sánchez",
     image: "/speakers/carlos.jpg",
   },
+  SHIV: {
+    name: "Shiv Bhonde",
+    image: "/speakers/shiv.jpeg",
+  },
   PABLO: {
     name: "Pablo Alayeto",
     image: "/speakers/pablo.png",
@@ -84,6 +88,14 @@ export const SPEAKERS = {
     name: "Jeffrey Scholz",
     image: "/speakers/jeffrey.jpg",
   },
+  NIKOLAI: {
+    name: "Nikolai",
+    image: "/speakers/nikolai.jpeg",
+  },
+  HUNTER: {
+    name: "Hunter B.",
+    image: "/speakers/hunter.jpg",
+  },
 };
 
 export const sessions: Session[] = [
@@ -97,20 +109,32 @@ export const sessions: Session[] = [
       "Explore what makes Ethereum fascinating and discover how the blockchain technology actually works. We'll dive into the core concepts, consensus mechanisms, and unique features that make Ethereum the world's most programmable blockchain platform.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
-    type: SessionType.WORKSHOP,
+    type: SessionType.TALK,
     speaker: [SPEAKERS.PATRICK],
   },
   {
     title: "Build your first dApp on Ethereum",
     date: "2025-11-18",
-    startTime: "12:00",
-    endTime: "13:00",
+    startTime: "11:30",
+    endTime: "12:30",
     description:
       "Jump into Ethereum development with this hands-on workshop! Using Scaffold-ETH 2, you'll build and deploy your very first decentralized application from scratch. By the end of this session, you'll have a working dApp and understand the fundamentals of smart contract development. No prior blockchain experience required.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
     speaker: [SPEAKERS.AUSTIN],
+  },
+  {
+    title: "Unveling Scaffold UI",
+    date: "2025-11-18",
+    startTime: "12:30",
+    endTime: "13:00",
+    description:
+      "Scaffold UI is a collection of React components and hooks designed specifically for building Ethereum dApps. These components provide a seamless way to interact with Ethereum addresses, balances, and user inputs in your decentralized applications.",
+    dayOfWeek: "Tuesday",
+    dateString: "November 18",
+    type: SessionType.WORKSHOP,
+    speaker: [SPEAKERS.SHIV],
   },
   {
     title: "Introduction to SpeedRunEthereum",
@@ -164,14 +188,26 @@ export const sessions: Session[] = [
   {
     title: "Zero-Knowledge Proofs",
     date: "2025-11-19",
-    startTime: "11:30",
-    endTime: "12:30",
+    startTime: "11:00",
+    endTime: "12:00",
     description:
       "Explore the world of Zero-Knowledge proofs and privacy-preserving computation. This SpeedRunEthereum challenge guides you through implementing ZK circuits, understanding proof generation and verification, and building applications that can prove knowledge without revealing secrets.",
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.CHALLENGE,
     speaker: [SPEAKERS.PHILIP],
+  },
+  {
+    title: "Run your own Ethereum node",
+    date: "2025-11-19",
+    startTime: "12:00",
+    endTime: "13:00",
+    description:
+      "Take control of your Ethereum experience by running your own node! Discover why node operators are the backbone of decentralization, learn the difference between execution and consensus clients, and walk through the complete setup process. We'll cover hardware requirements, client selection, and best practices for maintaining a secure, synced node that gives you trustless access to the Ethereum network.",
+    dayOfWeek: "Thursday",
+    dateString: "November 20",
+    type: SessionType.WORKSHOP,
+    speaker: [SPEAKERS.SPENCER],
   },
   {
     title: "Leveraging AI to build on Ethereum",
@@ -235,16 +271,27 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.HORSEFACTS],
   },
   {
-    title: "Run your own Ethereum node",
+    title: "Build a Farcaster Miniapp",
     date: "2025-11-20",
     startTime: "11:00",
-    endTime: "11:45",
-    description:
-      "Take control of your Ethereum experience by running your own node! Discover why node operators are the backbone of decentralization, learn the difference between execution and consensus clients, and walk through the complete setup process. We'll cover hardware requirements, client selection, and best practices for maintaining a secure, synced node that gives you trustless access to the Ethereum network.",
+    endTime: "11:30",
+    description: "Join Nikolai for a hands-on workshop on building & deploying Farcaster miniapps with Scaffold-ETH",
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.WORKSHOP,
-    speaker: [SPEAKERS.SPENCER],
+    speaker: [SPEAKERS.NIKOLAI],
+  },
+  {
+    title: "Miniapps ecosystem on Arbitrum",
+    date: "2025-11-20",
+    startTime: "11:30",
+    endTime: "12:00",
+    description:
+      "Join Hunter to explore the growing ecosystem of Farcaster miniapps on Arbitrum. We'll dive into the latest trends, use cases, and tools available for building on this Layer 2 network.",
+    dayOfWeek: "Thursday",
+    dateString: "November 20",
+    type: SessionType.TALK,
+    speaker: [SPEAKERS.HUNTER],
   },
   {
     title: "PMfers live",
@@ -354,8 +401,8 @@ export const getSessionPosition = (session: Session) => {
   const startOffsetMinutes = startMinutes - gridStartMinutes;
   const durationMinutes = endMinutes - startMinutes;
 
-  // Each hour = 80px, so each minute = 80/60 px
-  const pixelsPerMinute = 80 / 60;
+  // Each hour = 104px, so each minute = 104/60 px
+  const pixelsPerMinute = 120 / 60;
 
   return {
     startRow: Math.floor(startOffsetMinutes / 60) + 1, // which hour row
