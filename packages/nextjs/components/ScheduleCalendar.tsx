@@ -87,11 +87,17 @@ export const ScheduleCalendar = () => {
                           <div>
                             <p className="text-xs opacity-75 m-0">
                               {formatTo12Hour(session.startTime)} - {formatTo12Hour(session.endTime)}{" "}
-                              {session.speaker && (
-                                <span className="font-bold">
-                                  - {session.speaker.map(speaker => speaker.name).join(", ")}
-                                </span>
-                              )}
+                              {session.speaker &&
+                                (session.speaker.length === 1 ? (
+                                  <span className="font-bold">- {session.speaker[0].name}</span>
+                                ) : (
+                                  <>
+                                    <br />
+                                    <span className="font-bold">
+                                      {session.speaker.map(speaker => speaker.name).join(", ")}
+                                    </span>
+                                  </>
+                                ))}
                             </p>
                           </div>
                         </div>

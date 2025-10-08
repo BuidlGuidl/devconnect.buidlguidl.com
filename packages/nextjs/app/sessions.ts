@@ -96,6 +96,14 @@ export const SPEAKERS = {
     name: "Hunter B.",
     image: "/speakers/hunter.jpg",
   },
+  MONICA: {
+    name: "Monica Zeng",
+    image: "/speakers/monica.png",
+  },
+  DAMU: {
+    name: "Damian Martinelli",
+    image: "/speakers/damu.jpg",
+  },
 };
 
 export const sessions: Session[] = [
@@ -315,7 +323,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.CTF,
-    speaker: [SPEAKERS.CARLOS],
+    speaker: [SPEAKERS.CARLOS, SPEAKERS.DAMU],
   },
 
   // Friday 21
