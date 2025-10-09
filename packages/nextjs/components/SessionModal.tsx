@@ -60,7 +60,12 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
 
         <div className="divider"></div>
 
-        <p className="text-base leading-relaxed">{session.description}</p>
+        <p className="text-base leading-relaxed whitespace-pre-line">{session.description}</p>
+        {session.link && (
+          <a href={session.link.url} target="_blank" rel="noopener noreferrer" className="link">
+            {session.link.text}
+          </a>
+        )}
       </div>
       <div className="modal-backdrop" onClick={onClose}></div>
     </div>

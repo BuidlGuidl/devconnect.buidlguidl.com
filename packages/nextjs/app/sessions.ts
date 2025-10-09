@@ -23,6 +23,10 @@ export interface Session {
   dateString: string;
   type: SessionType;
   speaker?: Speaker[];
+  link?: {
+    url: string;
+    text: string;
+  };
 }
 
 export const sessionTypeColors = {
@@ -333,11 +337,15 @@ export const sessions: Session[] = [
     startTime: "10:00",
     endTime: "13:00",
     description:
-      "Connect, showcase, and network at this career fair designed for the next generation of Ethereum talent! Students will pitch their ideas, companies will deliver lightning talks about opportunities, and everyone will participate in networking sessions and panel discussions.",
+      "We're bringing students face-to-face with the builders, and teams shaping Ethereum. If you're a student looking to start a career in the ecosystem, or a company looking to meet and recruit top emerging talent, this is your chance to connect and build the future of decentralized technologies together!\n\n For companies: you'll get the chance to meet student builders, check out project demos, and receive a curated list of pre-screened resumes and portfolios from highly engaged students across our global university network. No commitments, no booths — just show up, chat, and discover new talent.\n\n For students:  it's your chance to showcase your work, connect directly with leading teams, and be a part of an open dialgue with some of the most experienced builders in the ecosystem. Student clubs can also apply for 10 free tickets to bring their members along!\n\n",
     dayOfWeek: "Friday",
     dateString: "November 21",
     type: SessionType.STUDENTS,
     speaker: [SPEAKERS.SHYAM],
+    link: {
+      url: "https://luma.com/kwu2wzzy",
+      text: "Register here",
+    },
   },
   {
     title: "Founder Speed Dating",
