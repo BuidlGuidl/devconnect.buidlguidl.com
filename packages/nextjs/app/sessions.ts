@@ -332,7 +332,7 @@ export const sessions: Session[] = [
 
   // Friday 21
   {
-    title: "Students & Companies fair",
+    title: "Students & Companies Connect",
     date: "2025-11-21",
     startTime: "10:00",
     endTime: "13:00",
