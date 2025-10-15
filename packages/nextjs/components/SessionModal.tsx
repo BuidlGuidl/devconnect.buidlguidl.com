@@ -14,7 +14,24 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
   if (!session) return null;
 
   const handleGoogleCalendar = () => {
-    window.open(getGoogleCalendarUrl(session), "_blank");
+    try {
+      const url = getGoogleCalendarUrl(session);
+      if (!url) {
+        alert("Unable to generate Google Calendar link. Please try the ICS download option.");
+        return;
+      }
+
+      const newWindow = window.open(url, "_blank");
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
+        // Popup was blocked
+        alert(
+          "Popup blocked! Please allow popups for this site, or copy this link:\n\n" + url.substring(0, 100) + "...",
+        );
+      }
+    } catch (error) {
+      console.error("Failed to open Google Calendar:", error);
+      alert("Unable to open Google Calendar. Please try the ICS download option.");
+    }
   };
 
   const handleICSDownload = () => {

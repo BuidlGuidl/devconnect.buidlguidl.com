@@ -126,31 +126,59 @@ export const generateAllSessionsICS = (sessions: Session[]): string => {
  * Opens ICS file directly (better UX - no download required)
  */
 export const openICS = (icsContent: string, filename: string): void => {
-  // Use data URI to open calendar app directly without downloading
-  const dataUri = `data:text/calendar;charset=utf-8,${encodeURIComponent(icsContent)}`;
-  const link = document.createElement("a");
-  link.href = dataUri;
-  link.download = filename;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  try {
+    // Use data URI to open calendar app directly without downloading
+    const dataUri = `data:text/calendar;charset=utf-8,${encodeURIComponent(icsContent)}`;
+    const link = document.createElement("a");
+    link.href = dataUri;
+    link.download = filename;
+    document.body.appendChild(link);
+
+    try {
+      link.click();
+    } finally {
+      // Always clean up DOM element, even if click fails
+      document.body.removeChild(link);
+    }
+  } catch (error) {
+    console.error("Failed to download calendar file:", error);
+    alert("Unable to download calendar file. Please try again or use Google Calendar option.");
+  }
 };
 
 /**
  * Adds a single session to calendar
  */
 export const addSessionToCalendar = (session: Session): void => {
-  const icsContent = generateSessionICS(session);
-  const filename = `${session.title.replace(/\s+/g, "-")}.ics`;
-  openICS(icsContent, filename);
+  try {
+    if (!session || !session.title || !session.date || !session.startTime || !session.endTime) {
+      throw new Error("Invalid session data");
+    }
+
+    const icsContent = generateSessionICS(session);
+    const filename = `${session.title.replace(/\s+/g, "-")}.ics`;
+    openICS(icsContent, filename);
+  } catch (error) {
+    console.error("Failed to add session to calendar:", error);
+    alert("Unable to add event to calendar. Please try again.");
+  }
 };
 
 /**
  * Adds all sessions to calendar
  */
 export const addAllSessionsToCalendar = (sessions: Session[]): void => {
-  const icsContent = generateAllSessionsICS(sessions);
-  openICS(icsContent, "BuidlGuidl-Devconnect-All-Sessions.ics");
+  try {
+    if (!sessions || sessions.length === 0) {
+      throw new Error("No sessions to add");
+    }
+
+    const icsContent = generateAllSessionsICS(sessions);
+    openICS(icsContent, "BuidlGuidl-Devconnect-All-Sessions.ics");
+  } catch (error) {
+    console.error("Failed to add all sessions to calendar:", error);
+    alert("Unable to add events to calendar. Please try again.");
+  }
 };
 
 /**
@@ -158,20 +186,30 @@ export const addAllSessionsToCalendar = (sessions: Session[]): void => {
  * Note: Times are in Argentina timezone (America/Argentina/Buenos_Aires)
  */
 export const getGoogleCalendarUrl = (session: Session): string => {
-  // Google Calendar dates format: YYYYMMDDTHHmmss
-  // We use the raw date/time values which represent Argentina local time
-  const startDateTime = formatDateTimeForICS(session.date, session.startTime);
-  const endDateTime = formatDateTimeForICS(session.date, session.endTime);
+  try {
+    if (!session || !session.title || !session.date || !session.startTime || !session.endTime) {
+      throw new Error("Invalid session data");
+    }
 
-  const speakers = session.speaker?.map(s => s.name).join(", ") || "";
-  const speakerText = speakers ? `\n\nSpeaker(s): ${speakers}` : "";
-  // Note: For Google Calendar, we don't escape - we URL encode instead
-  const details = encodeURIComponent(session.description + speakerText);
-  const location = encodeURIComponent("Devconnect main venue - Workshop space (Yellow Pavilion)");
-  const title = encodeURIComponent(session.title);
+    // Google Calendar dates format: YYYYMMDDTHHmmss
+    // We use the raw date/time values which represent Argentina local time
+    const startDateTime = formatDateTimeForICS(session.date, session.startTime);
+    const endDateTime = formatDateTimeForICS(session.date, session.endTime);
 
-  const dates = `${startDateTime}/${endDateTime}`;
+    const speakers = session.speaker?.map(s => s.name).join(", ") || "";
+    const speakerText = speakers ? `\n\nSpeaker(s): ${speakers}` : "";
+    // Note: For Google Calendar, we don't escape - we URL encode instead
+    const details = encodeURIComponent(session.description + speakerText);
+    const location = encodeURIComponent("Devconnect main venue - Workshop space (Yellow Pavilion)");
+    const title = encodeURIComponent(session.title);
 
-  // ctz parameter tells Google Calendar the timezone for the event
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}&ctz=America/Argentina/Buenos_Aires`;
+    const dates = `${startDateTime}/${endDateTime}`;
+
+    // ctz parameter tells Google Calendar the timezone for the event
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}&ctz=America/Argentina/Buenos_Aires`;
+  } catch (error) {
+    console.error("Failed to generate Google Calendar URL:", error);
+    // Return a fallback URL or empty string
+    return "";
+  }
 };
