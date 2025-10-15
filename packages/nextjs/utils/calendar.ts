@@ -1,27 +1,17 @@
 import { Session } from "~~/app/sessions";
 
 /**
- * Converts a date string and time to ISO format for iCalendar
+ * Formats date and time for iCalendar with timezone
  * @param date - Date string in format YYYY-MM-DD
  * @param time - Time string in format HH:MM
- * @returns ISO date string in format YYYYMMDDTHHMMSSZ
+ * @returns Formatted date string for iCalendar (YYYYMMDDTHHMMSS)
  */
-const toISODateString = (date: string, time: string): string => {
+const formatDateTimeForICS = (date: string, time: string): string => {
   const [year, month, day] = date.split("-");
   const [hours, minutes] = time.split(":");
 
-  // Create date in local timezone (Argentina)
-  // Devconnect Argentina is UTC-3
-  const localDate = new Date(`${year}-${month}-${day}T${hours}:${minutes}:00`);
-
-  // Convert to UTC for iCalendar format
-  const utcYear = localDate.getUTCFullYear();
-  const utcMonth = String(localDate.getUTCMonth() + 1).padStart(2, "0");
-  const utcDay = String(localDate.getUTCDate()).padStart(2, "0");
-  const utcHours = String(localDate.getUTCHours()).padStart(2, "0");
-  const utcMinutes = String(localDate.getUTCMinutes()).padStart(2, "0");
-
-  return `${utcYear}${utcMonth}${utcDay}T${utcHours}${utcMinutes}00Z`;
+  // Return local time format (not UTC) - timezone will be specified separately
+  return `${year}${month}${day}T${hours}${minutes}00`;
 };
 
 /**
@@ -35,8 +25,8 @@ const escapeICalText = (text: string): string => {
  * Generates an iCalendar (.ics) file content for a single session
  */
 export const generateSessionICS = (session: Session): string => {
-  const startDateTime = toISODateString(session.date, session.startTime);
-  const endDateTime = toISODateString(session.date, session.endTime);
+  const startDateTime = formatDateTimeForICS(session.date, session.startTime);
+  const endDateTime = formatDateTimeForICS(session.date, session.endTime);
 
   const speakers = session.speaker?.map(s => s.name).join(", ") || "";
   const speakerText = speakers ? `\n\nSpeaker(s): ${speakers}` : "";
@@ -54,10 +44,18 @@ export const generateSessionICS = (session: Session): string => {
     "PRODID:-//BuidlGuidl//Devconnect Builder Bootcamp//EN",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
+    "BEGIN:VTIMEZONE",
+    "TZID:America/Argentina/Buenos_Aires",
+    "BEGIN:STANDARD",
+    "DTSTART:19700101T000000",
+    "TZOFFSETFROM:-0300",
+    "TZOFFSETTO:-0300",
+    "END:STANDARD",
+    "END:VTIMEZONE",
     "BEGIN:VEVENT",
     `UID:${uid}`,
-    `DTSTART:${startDateTime}`,
-    `DTEND:${endDateTime}`,
+    `DTSTART;TZID=America/Argentina/Buenos_Aires:${startDateTime}`,
+    `DTEND;TZID=America/Argentina/Buenos_Aires:${endDateTime}`,
     `SUMMARY:${title}`,
     `DESCRIPTION:${description}`,
     `LOCATION:${location}`,
@@ -75,8 +73,8 @@ export const generateSessionICS = (session: Session): string => {
  */
 export const generateAllSessionsICS = (sessions: Session[]): string => {
   const events = sessions.map(session => {
-    const startDateTime = toISODateString(session.date, session.startTime);
-    const endDateTime = toISODateString(session.date, session.endTime);
+    const startDateTime = formatDateTimeForICS(session.date, session.startTime);
+    const endDateTime = formatDateTimeForICS(session.date, session.endTime);
 
     const speakers = session.speaker?.map(s => s.name).join(", ") || "";
     const speakerText = speakers ? `\n\nSpeaker(s): ${speakers}` : "";
@@ -90,8 +88,8 @@ export const generateAllSessionsICS = (sessions: Session[]): string => {
     return [
       "BEGIN:VEVENT",
       `UID:${uid}`,
-      `DTSTART:${startDateTime}`,
-      `DTEND:${endDateTime}`,
+      `DTSTART;TZID=America/Argentina/Buenos_Aires:${startDateTime}`,
+      `DTEND;TZID=America/Argentina/Buenos_Aires:${endDateTime}`,
       `SUMMARY:${title}`,
       `DESCRIPTION:${description}`,
       `LOCATION:${location}`,
@@ -109,6 +107,14 @@ export const generateAllSessionsICS = (sessions: Session[]): string => {
     "METHOD:PUBLISH",
     "X-WR-CALNAME:BuidlGuidl Builder Bootcamp @ Devconnect",
     "X-WR-TIMEZONE:America/Argentina/Buenos_Aires",
+    "BEGIN:VTIMEZONE",
+    "TZID:America/Argentina/Buenos_Aires",
+    "BEGIN:STANDARD",
+    "DTSTART:19700101T000000",
+    "TZOFFSETFROM:-0300",
+    "TZOFFSETTO:-0300",
+    "END:STANDARD",
+    "END:VTIMEZONE",
     ...events,
     "END:VCALENDAR",
   ].join("\r\n");
@@ -149,20 +155,13 @@ export const addAllSessionsToCalendar = (sessions: Session[]): void => {
 
 /**
  * Generates Google Calendar URL for a session
+ * Note: Times are in Argentina timezone (America/Argentina/Buenos_Aires)
  */
 export const getGoogleCalendarUrl = (session: Session): string => {
-  const startDate = new Date(`${session.date}T${session.startTime}:00`);
-  const endDate = new Date(`${session.date}T${session.endTime}:00`);
-
-  // Format dates for Google Calendar (YYYYMMDDTHHmmss)
-  const formatDateForGoogle = (date: Date) => {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-    const hours = String(date.getHours()).padStart(2, "0");
-    const minutes = String(date.getMinutes()).padStart(2, "0");
-    return `${year}${month}${day}T${hours}${minutes}00`;
-  };
+  // Google Calendar dates format: YYYYMMDDTHHmmss
+  // We use the raw date/time values which represent Argentina local time
+  const startDateTime = formatDateTimeForICS(session.date, session.startTime);
+  const endDateTime = formatDateTimeForICS(session.date, session.endTime);
 
   const speakers = session.speaker?.map(s => s.name).join(", ") || "";
   const speakerText = speakers ? `\n\nSpeaker(s): ${speakers}` : "";
@@ -170,7 +169,8 @@ export const getGoogleCalendarUrl = (session: Session): string => {
   const location = encodeURIComponent("Devconnect main venue - Workshop space (Yellow Pavilion)");
   const title = encodeURIComponent(session.title);
 
-  const dates = `${formatDateForGoogle(startDate)}/${formatDateForGoogle(endDate)}`;
+  const dates = `${startDateTime}/${endDateTime}`;
 
+  // ctz parameter tells Google Calendar the timezone for the event
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}&ctz=America/Argentina/Buenos_Aires`;
 };
