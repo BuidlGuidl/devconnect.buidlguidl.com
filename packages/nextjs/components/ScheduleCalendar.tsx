@@ -11,7 +11,9 @@ import {
   getSessionPosition,
   getSessionsForDay,
   sessionTypeColors,
+  sessions,
 } from "~~/app/sessions";
+import { downloadAllSessionsICS } from "~~/utils/calendar";
 
 export const ScheduleCalendar = () => {
   const [selectedSession, setSelectedSession] = useState<Session | null>(null);
@@ -30,10 +32,23 @@ export const ScheduleCalendar = () => {
     setSelectedSession(null);
   };
 
+  const handleAddAllToCalendar = () => {
+    downloadAllSessionsICS(sessions);
+  };
+
   return (
     // wrapping div with overflow-x-auto
     <div className="overflow-x-auto">
       <div className="w-[1320px] mx-auto p-4 sm:p-6 bg-white/40 rounded-xl">
+        <div className="flex justify-center mb-6">
+          <button
+            onClick={handleAddAllToCalendar}
+            className="btn btn-lg bg-white/80 hover:bg-white border-2 border-primary text-primary font-bold"
+          >
+            📅 Add All Events to Calendar
+          </button>
+        </div>
+
         <div className="flex gap-2 sm:gap-4 mb-6 min-w-[800px]">
           <div className="w-8 text-sm font-medium text-base-content/60"></div>
           {days.map(day => {

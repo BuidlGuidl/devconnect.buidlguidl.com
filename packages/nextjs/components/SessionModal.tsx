@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Session, formatTo12Hour } from "~~/app/sessions";
+import { downloadSessionICS } from "~~/utils/calendar";
 
 interface SessionModalProps {
   session: Session | null;
@@ -11,6 +12,10 @@ interface SessionModalProps {
 
 export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) => {
   if (!session) return null;
+
+  const handleAddToCalendar = () => {
+    downloadSessionICS(session);
+  };
 
   // Solid lighter versions of the session colors
   const lightColors = {
@@ -66,6 +71,15 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
             {session.link.text}
           </a>
         )}
+
+        <div className="mt-6">
+          <button
+            onClick={handleAddToCalendar}
+            className="btn bg-white/60 hover:bg-white border-2 border-primary text-primary font-bold"
+          >
+            📅 Add to Calendar
+          </button>
+        </div>
       </div>
       <div className="modal-backdrop" onClick={onClose}></div>
     </div>
