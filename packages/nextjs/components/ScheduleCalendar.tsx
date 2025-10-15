@@ -139,7 +139,10 @@ export const ScheduleCalendar = () => {
         </div>
 
         <div className="flex justify-center mt-8">
-          <button onClick={handleAddAllToCalendar} className="text-base-content/70 hover:text-base-content underline">
+          <button
+            onClick={handleAddAllToCalendar}
+            className="text-base-content/70 hover:text-base-content underline cursor-pointer"
+          >
             📥 Download ICS file with all events
           </button>
         </div>
