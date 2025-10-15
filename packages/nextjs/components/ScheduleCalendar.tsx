@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SessionModal } from "./SessionModal";
 import {
   Session,
@@ -13,14 +13,23 @@ import {
   sessionTypeColors,
   sessions,
 } from "~~/app/sessions";
-import { downloadAllSessionsICS } from "~~/utils/calendar";
+import { addAllSessionsToCalendar } from "~~/utils/calendar";
 
 export const ScheduleCalendar = () => {
   const [selectedSession, setSelectedSession] = useState<Session | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(true);
 
   const days = getAllDays();
   const timeSlots = getHourlyTimeSlotsFormatted();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowTooltip(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSessionClick = (session: Session) => {
     setSelectedSession(session);
@@ -33,22 +42,13 @@ export const ScheduleCalendar = () => {
   };
 
   const handleAddAllToCalendar = () => {
-    downloadAllSessionsICS(sessions);
+    addAllSessionsToCalendar(sessions);
   };
 
   return (
     // wrapping div with overflow-x-auto
     <div className="overflow-x-auto">
       <div className="w-[1320px] mx-auto p-4 sm:p-6 bg-white/40 rounded-xl">
-        <div className="flex justify-center mb-6">
-          <button
-            onClick={handleAddAllToCalendar}
-            className="btn btn-lg bg-white/80 hover:bg-white border-2 border-primary text-primary font-bold"
-          >
-            📅 Add All Events to Calendar
-          </button>
-        </div>
-
         <div className="flex gap-2 sm:gap-4 mb-6 min-w-[800px]">
           <div className="w-8 text-sm font-medium text-base-content/60"></div>
           {days.map(day => {
@@ -76,14 +76,15 @@ export const ScheduleCalendar = () => {
           <div className="absolute inset-0 flex gap-2 sm:gap-4">
             <div className="w-12"></div>
 
-            {days.map(day => {
+            {days.map((day, dayIndex) => {
               const daySessions = getSessionsForDay(day);
 
               return (
                 <div key={day} className="flex-1 relative">
-                  {daySessions.map(session => {
+                  {daySessions.map((session, sessionIndex) => {
                     const position = getSessionPosition(session);
                     const colors = sessionTypeColors[session.type];
+                    const isFirstSession = dayIndex === 0 && sessionIndex === 0;
                     const className =
                       "absolute left-0 right-0 outline outline-2 outline-gray-300 rounded-lg cursor-pointer hover:shadow-md transition-shadow p-2.5 z-10";
                     const style = { ...colors, top: `${position.startOffset}px`, height: `${position.duration}px` };
@@ -91,9 +92,13 @@ export const ScheduleCalendar = () => {
                     return (
                       <div
                         key={session.title}
-                        className={className}
+                        className={`${className} ${isFirstSession && showTooltip ? "tooltip tooltip-open tooltip-left" : ""}`}
                         style={style}
-                        onClick={() => handleSessionClick(session)}
+                        onClick={() => {
+                          handleSessionClick(session);
+                          if (isFirstSession) setShowTooltip(false);
+                        }}
+                        data-tip={isFirstSession ? "Click to add to calendar" : ""}
                       >
                         <div className="h-full flex flex-col justify-between">
                           <div>
@@ -131,6 +136,12 @@ export const ScheduleCalendar = () => {
           >
             <span className="font-mono text-base-content/40">&#47;&#47; LUNCH_BREAK</span>
           </div>
+        </div>
+
+        <div className="flex justify-center mt-8">
+          <button onClick={handleAddAllToCalendar} className="text-base-content/70 hover:text-base-content underline">
+            📥 Download ICS file with all events
+          </button>
         </div>
 
         <SessionModal session={selectedSession} isOpen={isModalOpen} onClose={handleCloseModal} />

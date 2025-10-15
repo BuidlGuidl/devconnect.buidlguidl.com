@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { Session, formatTo12Hour } from "~~/app/sessions";
-import { downloadSessionICS } from "~~/utils/calendar";
+import { addSessionToCalendar, getGoogleCalendarUrl } from "~~/utils/calendar";
 
 interface SessionModalProps {
   session: Session | null;
@@ -11,10 +12,18 @@ interface SessionModalProps {
 }
 
 export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
   if (!session) return null;
 
-  const handleAddToCalendar = () => {
-    downloadSessionICS(session);
+  const handleGoogleCalendar = () => {
+    window.open(getGoogleCalendarUrl(session), "_blank");
+    setShowDropdown(false);
+  };
+
+  const handleICSDownload = () => {
+    addSessionToCalendar(session);
+    setShowDropdown(false);
   };
 
   // Solid lighter versions of the session colors
@@ -74,11 +83,23 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
 
         <div className="mt-6">
           <button
-            onClick={handleAddToCalendar}
+            onClick={() => setShowDropdown(!showDropdown)}
             className="btn bg-white/60 hover:bg-white border-2 border-primary text-primary font-bold"
           >
             📅 Add to Calendar
           </button>
+          {showDropdown && (
+            <div className="mt-2 p-3 bg-white rounded-lg shadow-lg border-2 border-base-300">
+              <div className="flex flex-col gap-2">
+                <button onClick={handleGoogleCalendar} className="btn btn-sm btn-outline w-full">
+                  Google Calendar
+                </button>
+                <button onClick={handleICSDownload} className="btn btn-sm btn-outline w-full">
+                  Apple/Outlook Calendar (.ics)
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="modal-backdrop" onClick={onClose}></div>

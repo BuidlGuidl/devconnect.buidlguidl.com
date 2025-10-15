@@ -117,32 +117,60 @@ export const generateAllSessionsICS = (sessions: Session[]): string => {
 };
 
 /**
- * Downloads an ICS file
+ * Opens ICS file directly (better UX - no download required)
  */
-export const downloadICS = (icsContent: string, filename: string): void => {
-  const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+export const openICS = (icsContent: string, filename: string): void => {
+  // Use data URI to open calendar app directly without downloading
+  const dataUri = `data:text/calendar;charset=utf-8,${encodeURIComponent(icsContent)}`;
   const link = document.createElement("a");
-  link.href = window.URL.createObjectURL(blob);
+  link.href = dataUri;
   link.download = filename;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-  window.URL.revokeObjectURL(link.href);
 };
 
 /**
- * Downloads a single session as ICS file
+ * Adds a single session to calendar
  */
-export const downloadSessionICS = (session: Session): void => {
+export const addSessionToCalendar = (session: Session): void => {
   const icsContent = generateSessionICS(session);
   const filename = `${session.title.replace(/\s+/g, "-")}.ics`;
-  downloadICS(icsContent, filename);
+  openICS(icsContent, filename);
 };
 
 /**
- * Downloads all sessions as a single ICS file
+ * Adds all sessions to calendar
  */
-export const downloadAllSessionsICS = (sessions: Session[]): void => {
+export const addAllSessionsToCalendar = (sessions: Session[]): void => {
   const icsContent = generateAllSessionsICS(sessions);
-  downloadICS(icsContent, "BuidlGuidl-Devconnect-All-Sessions.ics");
+  openICS(icsContent, "BuidlGuidl-Devconnect-All-Sessions.ics");
+};
+
+/**
+ * Generates Google Calendar URL for a session
+ */
+export const getGoogleCalendarUrl = (session: Session): string => {
+  const startDate = new Date(`${session.date}T${session.startTime}:00`);
+  const endDate = new Date(`${session.date}T${session.endTime}:00`);
+
+  // Format dates for Google Calendar (YYYYMMDDTHHmmss)
+  const formatDateForGoogle = (date: Date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    return `${year}${month}${day}T${hours}${minutes}00`;
+  };
+
+  const speakers = session.speaker?.map(s => s.name).join(", ") || "";
+  const speakerText = speakers ? `\n\nSpeaker(s): ${speakers}` : "";
+  const details = encodeURIComponent(session.description + speakerText);
+  const location = encodeURIComponent("Devconnect main venue - Workshop space (Yellow Pavilion)");
+  const title = encodeURIComponent(session.title);
+
+  const dates = `${formatDateForGoogle(startDate)}/${formatDateForGoogle(endDate)}`;
+
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}&ctz=America/Argentina/Buenos_Aires`;
 };
