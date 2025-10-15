@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { Session, formatTo12Hour } from "~~/app/sessions";
 import { addSessionToCalendar, getGoogleCalendarUrl } from "~~/utils/calendar";
@@ -12,18 +11,14 @@ interface SessionModalProps {
 }
 
 export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) => {
-  const [showDropdown, setShowDropdown] = useState(false);
-
   if (!session) return null;
 
   const handleGoogleCalendar = () => {
     window.open(getGoogleCalendarUrl(session), "_blank");
-    setShowDropdown(false);
   };
 
   const handleICSDownload = () => {
     addSessionToCalendar(session);
-    setShowDropdown(false);
   };
 
   // Solid lighter versions of the session colors
@@ -81,25 +76,14 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
           </a>
         )}
 
-        <div className="mt-6">
-          <button
-            onClick={() => setShowDropdown(!showDropdown)}
-            className="btn bg-white/60 hover:bg-white border-2 border-primary text-primary font-bold"
-          >
-            📅 Add to Calendar
+        <div className="mt-6 flex gap-4 items-center text-sm">
+          <button onClick={handleGoogleCalendar} className="text-base-content/70 hover:text-base-content underline">
+            📅 Add to Google Calendar
           </button>
-          {showDropdown && (
-            <div className="mt-2 p-3 bg-white rounded-lg shadow-lg border-2 border-base-300">
-              <div className="flex flex-col gap-2">
-                <button onClick={handleGoogleCalendar} className="btn btn-sm btn-outline w-full">
-                  Google Calendar
-                </button>
-                <button onClick={handleICSDownload} className="btn btn-sm btn-outline w-full">
-                  Apple/Outlook Calendar (.ics)
-                </button>
-              </div>
-            </div>
-          )}
+          <span className="text-base-content/40">or</span>
+          <button onClick={handleICSDownload} className="text-base-content/70 hover:text-base-content underline">
+            Download ICS file
+          </button>
         </div>
       </div>
       <div className="modal-backdrop" onClick={onClose}></div>
