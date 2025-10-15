@@ -22,12 +22,9 @@ const escapeICalText = (text: string): string => {
 };
 
 /**
- * Generates an iCalendar (.ics) file content for a single session
+ * Builds event data for iCalendar format
  */
-export const generateSessionICS = (session: Session): string => {
-  const startDateTime = formatDateTimeForICS(session.date, session.startTime);
-  const endDateTime = formatDateTimeForICS(session.date, session.endTime);
-
+const buildEventData = (session: Session) => {
   const speakers = session.speaker?.map(s => s.name).join(", ") || "";
   const speakerText = speakers ? `\n\nSpeaker(s): ${speakers}` : "";
 
@@ -37,6 +34,17 @@ export const generateSessionICS = (session: Session): string => {
 
   // Generate unique ID for the event
   const uid = `${session.date}-${session.startTime}-${session.title.replace(/\s+/g, "-")}@devconnect.buidlguidl.com`;
+
+  return { description, title, location, uid };
+};
+
+/**
+ * Generates an iCalendar (.ics) file content for a single session
+ */
+export const generateSessionICS = (session: Session): string => {
+  const startDateTime = formatDateTimeForICS(session.date, session.startTime);
+  const endDateTime = formatDateTimeForICS(session.date, session.endTime);
+  const { description, title, location, uid } = buildEventData(session);
 
   const icsContent = [
     "BEGIN:VCALENDAR",
@@ -75,15 +83,7 @@ export const generateAllSessionsICS = (sessions: Session[]): string => {
   const events = sessions.map(session => {
     const startDateTime = formatDateTimeForICS(session.date, session.startTime);
     const endDateTime = formatDateTimeForICS(session.date, session.endTime);
-
-    const speakers = session.speaker?.map(s => s.name).join(", ") || "";
-    const speakerText = speakers ? `\n\nSpeaker(s): ${speakers}` : "";
-
-    const description = escapeICalText(session.description + speakerText);
-    const title = escapeICalText(session.title);
-    const location = "Devconnect main venue - Workshop space (Yellow Pavilion)";
-
-    const uid = `${session.date}-${session.startTime}-${session.title.replace(/\s+/g, "-")}@devconnect.buidlguidl.com`;
+    const { description, title, location, uid } = buildEventData(session);
 
     return [
       "BEGIN:VEVENT",
@@ -165,6 +165,7 @@ export const getGoogleCalendarUrl = (session: Session): string => {
 
   const speakers = session.speaker?.map(s => s.name).join(", ") || "";
   const speakerText = speakers ? `\n\nSpeaker(s): ${speakers}` : "";
+  // Note: For Google Calendar, we don't escape - we URL encode instead
   const details = encodeURIComponent(session.description + speakerText);
   const location = encodeURIComponent("Devconnect main venue - Workshop space (Yellow Pavilion)");
   const title = encodeURIComponent(session.title);
