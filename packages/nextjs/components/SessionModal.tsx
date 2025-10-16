@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Session, formatTo12Hour } from "~~/app/sessions";
+import { addSessionToCalendar, getGoogleCalendarUrl } from "~~/utils/calendar";
 
 interface SessionModalProps {
   session: Session | null;
@@ -11,6 +12,31 @@ interface SessionModalProps {
 
 export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) => {
   if (!session) return null;
+
+  const handleGoogleCalendar = () => {
+    try {
+      const url = getGoogleCalendarUrl(session);
+      if (!url) {
+        alert("Unable to generate Google Calendar link. Please try the ICS download option.");
+        return;
+      }
+
+      const newWindow = window.open(url, "_blank");
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
+        // Popup was blocked
+        alert(
+          "Popup blocked! Please allow popups for this site, or copy this link:\n\n" + url.substring(0, 100) + "...",
+        );
+      }
+    } catch (error) {
+      console.error("Failed to open Google Calendar:", error);
+      alert("Unable to open Google Calendar. Please try the ICS download option.");
+    }
+  };
+
+  const handleICSDownload = () => {
+    addSessionToCalendar(session);
+  };
 
   // Solid lighter versions of the session colors
   const lightColors = {
@@ -24,8 +50,11 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
   };
 
   return (
-    <div className={`modal ${isOpen ? "modal-open" : ""}`}>
-      <div className="modal-box max-w-2xl" style={{ backgroundColor: lightColors[session.type] }}>
+    <div className={`modal ${isOpen ? "modal-open" : ""} items-start sm:items-center pt-16 sm:pt-0`}>
+      <div
+        className="modal-box max-w-2xl max-h-[85vh] overflow-y-auto"
+        style={{ backgroundColor: lightColors[session.type] }}
+      >
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="font-bold text-lg text-primary mb-0">{session.title}</h3>
@@ -60,12 +89,30 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
 
         <div className="divider"></div>
 
-        <p className="text-base leading-relaxed whitespace-pre-line">{session.description}</p>
+        <p className="text-base leading-relaxed whitespace-pre-line mb-0">{session.description}</p>
         {session.link && (
-          <a href={session.link.url} target="_blank" rel="noopener noreferrer" className="link">
+          <a href={session.link.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary text-white">
             {session.link.text}
           </a>
         )}
+
+        <div className="divider"></div>
+
+        <div className="flex gap-4 items-center text-sm">
+          <button
+            onClick={handleGoogleCalendar}
+            className="text-base-content/70 hover:text-base-content cursor-pointer"
+          >
+            📅 <span className="underline">Add to Google Calendar</span>
+          </button>
+          <span className="text-base-content/40">or</span>
+          <button
+            onClick={handleICSDownload}
+            className="text-base-content/70 hover:text-base-content underline cursor-pointer"
+          >
+            Download ICS file
+          </button>
+        </div>
       </div>
       <div className="modal-backdrop" onClick={onClose}></div>
     </div>

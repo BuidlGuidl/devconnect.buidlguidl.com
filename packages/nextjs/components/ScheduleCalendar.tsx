@@ -11,7 +11,9 @@ import {
   getSessionPosition,
   getSessionsForDay,
   sessionTypeColors,
+  sessions,
 } from "~~/app/sessions";
+import { addAllSessionsToCalendar } from "~~/utils/calendar";
 
 export const ScheduleCalendar = () => {
   const [selectedSession, setSelectedSession] = useState<Session | null>(null);
@@ -28,6 +30,10 @@ export const ScheduleCalendar = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedSession(null);
+  };
+
+  const handleAddAllToCalendar = () => {
+    addAllSessionsToCalendar(sessions);
   };
 
   return (
@@ -116,6 +122,15 @@ export const ScheduleCalendar = () => {
           >
             <span className="font-mono text-base-content/40">&#47;&#47; LUNCH_BREAK</span>
           </div>
+        </div>
+
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={handleAddAllToCalendar}
+            className="text-base-content/70 hover:text-base-content cursor-pointer"
+          >
+            📥 <span className="underline">Download ICS file with all events</span>
+          </button>
         </div>
 
         <SessionModal session={selectedSession} isOpen={isModalOpen} onClose={handleCloseModal} />
