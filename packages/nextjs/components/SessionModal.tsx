@@ -50,8 +50,11 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
   };
 
   return (
-    <div className={`modal ${isOpen ? "modal-open" : ""}`}>
-      <div className="modal-box max-w-2xl" style={{ backgroundColor: lightColors[session.type] }}>
+    <div className={`modal ${isOpen ? "modal-open" : ""} items-start sm:items-center pt-16 sm:pt-0`}>
+      <div
+        className="modal-box max-w-2xl max-h-[85vh] overflow-y-auto"
+        style={{ backgroundColor: lightColors[session.type] }}
+      >
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="font-bold text-lg text-primary mb-0">{session.title}</h3>
@@ -86,14 +89,16 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
 
         <div className="divider"></div>
 
-        <p className="text-base leading-relaxed whitespace-pre-line">{session.description}</p>
+        <p className="text-base leading-relaxed whitespace-pre-line mb-0">{session.description}</p>
         {session.link && (
-          <a href={session.link.url} target="_blank" rel="noopener noreferrer" className="link">
+          <a href={session.link.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary text-white">
             {session.link.text}
           </a>
         )}
 
-        <div className="mt-6 flex gap-4 items-center text-sm">
+        <div className="divider"></div>
+
+        <div className="flex gap-4 items-center text-sm">
           <button
             onClick={handleGoogleCalendar}
             className="text-base-content/70 hover:text-base-content cursor-pointer"
