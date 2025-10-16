@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SessionModal } from "./SessionModal";
 import {
   Session,
@@ -18,18 +18,9 @@ import { addAllSessionsToCalendar } from "~~/utils/calendar";
 export const ScheduleCalendar = () => {
   const [selectedSession, setSelectedSession] = useState<Session | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(true);
 
   const days = getAllDays();
   const timeSlots = getHourlyTimeSlotsFormatted();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowTooltip(false);
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleSessionClick = (session: Session) => {
     setSelectedSession(session);
@@ -76,15 +67,14 @@ export const ScheduleCalendar = () => {
           <div className="absolute inset-0 flex gap-2 sm:gap-4">
             <div className="w-12"></div>
 
-            {days.map((day, dayIndex) => {
+            {days.map(day => {
               const daySessions = getSessionsForDay(day);
 
               return (
                 <div key={day} className="flex-1 relative">
-                  {daySessions.map((session, sessionIndex) => {
+                  {daySessions.map(session => {
                     const position = getSessionPosition(session);
                     const colors = sessionTypeColors[session.type];
-                    const isFirstSession = dayIndex === 0 && sessionIndex === 0;
                     const className =
                       "absolute left-0 right-0 outline outline-2 outline-gray-300 rounded-lg cursor-pointer hover:shadow-md transition-shadow p-2.5 z-10";
                     const style = { ...colors, top: `${position.startOffset}px`, height: `${position.duration}px` };
@@ -92,13 +82,9 @@ export const ScheduleCalendar = () => {
                     return (
                       <div
                         key={session.title}
-                        className={`${className} ${isFirstSession && showTooltip ? "tooltip tooltip-open tooltip-left" : ""}`}
+                        className={className}
                         style={style}
-                        onClick={() => {
-                          handleSessionClick(session);
-                          if (isFirstSession) setShowTooltip(false);
-                        }}
-                        data-tip={isFirstSession ? "Click to add to calendar" : ""}
+                        onClick={() => handleSessionClick(session)}
                       >
                         <div className="h-full flex flex-col justify-between">
                           <div>
