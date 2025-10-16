@@ -96,9 +96,9 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
         <div className="mt-6 flex gap-4 items-center text-sm">
           <button
             onClick={handleGoogleCalendar}
-            className="text-base-content/70 hover:text-base-content underline cursor-pointer"
+            className="text-base-content/70 hover:text-base-content cursor-pointer"
           >
-            📅 Add to Google Calendar
+            📅 <span className="underline">Add to Google Calendar</span>
           </button>
           <span className="text-base-content/40">or</span>
           <button
