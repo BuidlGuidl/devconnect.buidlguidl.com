@@ -108,6 +108,10 @@ export const SPEAKERS = {
     name: "Damian Martinelli",
     image: "/speakers/damu.jpg",
   },
+  SOPHIA: {
+    name: "Sophia",
+    image: "/speakers/sophia.jpg",
+  },
 };
 
 export const sessions: Session[] = [
@@ -283,7 +287,7 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.HORSEFACTS],
   },
   {
-    title: "Build a Farcaster Miniapp",
+    title: "Miniapps in Scaffold-ETH",
     date: "2025-11-20",
     startTime: "11:00",
     endTime: "11:30",
@@ -306,16 +310,27 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.HUNTER],
   },
   {
-    title: "PMfers live",
+    title: "Miniapps ecosystem on Celo",
     date: "2025-11-20",
     startTime: "12:00",
-    endTime: "13:00",
+    endTime: "12:30",
     description:
-      "Join us for an inspiring panel discussion about building your career in Web3! We'll bring in special guests to share insights about developer education, breaking into the Ethereum industry, landing your first Web3 job, and building a successful onchain career.",
+      "Discover how to build and deploy miniapps on the Celo blockchain. Learn about Celo's mobile-first approach and how to create decentralized applications that are accessible to users worldwide.",
     dayOfWeek: "Thursday",
     dateString: "November 20",
-    type: SessionType.PANEL,
-    speaker: [SPEAKERS.AUSTIN],
+    type: SessionType.TALK,
+    speaker: [SPEAKERS.SOPHIA],
+  },
+  {
+    title: "Open time to build a miniapp",
+    date: "2025-11-20",
+    startTime: "12:30",
+    endTime: "13:00",
+    description:
+      "Get hands-on experience building your first miniapp in this interactive workshop. Learn the fundamentals of miniapp development and deploy your creation by the end of the session.",
+    dayOfWeek: "Thursday",
+    dateString: "November 20",
+    type: SessionType.WORKSHOP,
   },
   {
     title: "Capture the Flag",
