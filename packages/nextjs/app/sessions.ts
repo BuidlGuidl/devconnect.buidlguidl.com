@@ -137,7 +137,7 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.AUSTIN],
   },
   {
-    title: "Unveling Scaffold UI",
+    title: "Unveiling Scaffold UI",
     date: "2025-11-18",
     startTime: "12:30",
     endTime: "13:00",
