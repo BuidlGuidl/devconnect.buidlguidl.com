@@ -149,12 +149,12 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.SHIV],
   },
   {
-    title: "Introduction to SpeedRunEthereum",
+    title: "Introduction to Speedrun Ethereum",
     date: "2025-11-18",
     startTime: "14:00",
     endTime: "15:00",
     description:
-      "This session introduces SpeedRunEthereum, a gamified learning platform that helps developers understand all the Ethereum development gotchas as you build your onchain portfolio. We'll do a walkthrough of the first few challenges.",
+      "This session introduces Speedrun Ethereum, a gamified learning platform that helps developers understand all the Ethereum development gotchas as you build your onchain portfolio. We'll do a walkthrough of the first few challenges.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
@@ -166,7 +166,7 @@ export const sessions: Session[] = [
     startTime: "15:30",
     endTime: "16:30",
     description:
-      "Dive deep into the mechanics of decentralized algorithmic stablecoins and explore how they maintain price stability. Discover the critical role of over-collateralization in protecting against volatility and collapse. Then, put theory into practice with a guided SpeedRunEthereum challenge that demonstrates how economic principles and incentive design can keep digital assets stable in real-world conditions.",
+      "Dive deep into the mechanics of decentralized algorithmic stablecoins and explore how they maintain price stability. Discover the critical role of over-collateralization in protecting against volatility and collapse. Then, put theory into practice with a guided Speedrun Ethereum challenge that demonstrates how economic principles and incentive design can keep digital assets stable in real-world conditions.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.CHALLENGE,
@@ -191,7 +191,7 @@ export const sessions: Session[] = [
     startTime: "10:00",
     endTime: "11:00",
     description:
-      "Build your own prediction market and understand how these powerful tools aggregate wisdom from crowds. This SpeedRunEthereum challenge walks you through implementing betting mechanisms, oracle integration for real-world data, and automated resolution systems.",
+      "Build your own prediction market and understand how these powerful tools aggregate wisdom from crowds. This Speedrun Ethereum challenge walks you through implementing betting mechanisms, oracle integration for real-world data, and automated resolution systems.",
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.CHALLENGE,
@@ -203,7 +203,7 @@ export const sessions: Session[] = [
     startTime: "11:00",
     endTime: "12:00",
     description:
-      "Explore the world of Zero-Knowledge proofs and privacy-preserving computation. This SpeedRunEthereum challenge guides you through implementing ZK circuits, understanding proof generation and verification, and building applications that can prove knowledge without revealing secrets.",
+      "Explore the world of Zero-Knowledge proofs and privacy-preserving computation. This Speedrun Ethereum challenge guides you through implementing ZK circuits, understanding proof generation and verification, and building applications that can prove knowledge without revealing secrets.",
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.CHALLENGE,
