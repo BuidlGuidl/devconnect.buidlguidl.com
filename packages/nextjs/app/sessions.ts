@@ -11,6 +11,10 @@ export enum SessionType {
 export type Speaker = {
   name: string;
   image: string;
+  company?: {
+    name: string;
+    icon: string;
+  };
 };
 
 export interface Session {
@@ -43,54 +47,106 @@ export const SPEAKERS = {
   PATRICK: {
     name: "Patrick McCorry",
     image: "/speakers/patrick.jpg",
+    company: {
+      name: "Arbitrum",
+      icon: "/companies/arbitrum.svg",
+    },
   },
   AUSTIN: {
     name: "Austin Griffith",
     image: "/speakers/austin.png",
+    company: {
+      name: "Ethereum Foundation",
+      icon: "/companies/ethereum-foundation.png",
+    },
   },
   CARLOS: {
     name: "Carlos Sánchez",
     image: "/speakers/carlos.jpg",
+    company: {
+      name: "BuidlGuidl",
+      icon: "/companies/buidlguidl.svg",
+    },
   },
   SHIV: {
     name: "Shiv Bhonde",
     image: "/speakers/shiv.jpeg",
+    company: {
+      name: "BuidlGuidl",
+      icon: "/companies/buidlguidl.svg",
+    },
   },
   PABLO: {
     name: "Pablo Alayeto",
     image: "/speakers/pablo.png",
+    company: {
+      name: "BuidlGuidl",
+      icon: "/companies/buidlguidl.svg",
+    },
   },
   PHILIP: {
     name: "Philip Krause",
     image: "/speakers/philip.png",
+    company: {
+      name: "BuidlGuidl",
+      icon: "/companies/buidlguidl.svg",
+    },
   },
   ELLIOT: {
     name: "Elliott Alexander",
     image: "/speakers/elliott.png",
+    company: {
+      name: "Ethereum Foundation",
+      icon: "/companies/ethereum-foundation.png",
+    },
   },
   HORSEFACTS: {
     name: "Horsefacts",
     image: "/speakers/horsefacts.jpg",
+    company: {
+      name: "Farcaster",
+      icon: "/companies/farcaster.svg",
+    },
   },
   SHYAM: {
     name: "Shyam",
     image: "/speakers/shyam.jpg",
+    company: {
+      name: "Ethereum Foundation",
+      icon: "/companies/ethereum-foundation.png",
+    },
   },
   EDA: {
     name: "Eda Akturk",
     image: "/speakers/eda.jpg",
+    company: {
+      name: "Hyperlane",
+      icon: "/companies/hyperlane.jpeg",
+    },
   },
   KEVIN: {
     name: "Kevin Jones",
     image: "/speakers/kevin.jpg",
+    company: {
+      name: "Edge & Node",
+      icon: "/companies/edge-and-node.png",
+    },
   },
   SPENCER: {
     name: "Spencer Faber",
     image: "/speakers/spencer.jpg",
+    company: {
+      name: "BuidlGuidl",
+      icon: "/companies/buidlguidl.svg",
+    },
   },
   JEFFREY: {
     name: "Jeffrey Scholz",
     image: "/speakers/jeffrey.jpg",
+    company: {
+      name: "RareSkills",
+      icon: "/companies/rareskills.jpeg",
+    },
   },
   NIKOLAI: {
     name: "Nikolai",
@@ -99,6 +155,10 @@ export const SPEAKERS = {
   HUNTER: {
     name: "Hunter B.",
     image: "/speakers/hunter.jpg",
+    company: {
+      name: "Arbitrum",
+      icon: "/companies/arbitrum.svg",
+    },
   },
   MONICA: {
     name: "Monica Zeng",
@@ -107,10 +167,18 @@ export const SPEAKERS = {
   DAMU: {
     name: "Damian Martinelli",
     image: "/speakers/damu.jpg",
+    company: {
+      name: "BuidlGuidl",
+      icon: "/companies/buidlguidl.svg",
+    },
   },
   SOPHIA: {
     name: "Sophia",
     image: "/speakers/sophia.jpg",
+    company: {
+      name: "Celo",
+      icon: "/companies/celo.svg",
+    },
   },
 };
 
