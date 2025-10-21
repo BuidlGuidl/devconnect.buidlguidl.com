@@ -315,7 +315,7 @@ export const sessions: Session[] = [
     startTime: "12:00",
     endTime: "12:30",
     description:
-      "Discover how to build and deploy miniapps on the Celo blockchain. Learn about Celo's mobile-first approach and how to create decentralized applications that are accessible to users worldwide.",
+      "Learn how to build mini apps on Celo, the L2 built for the real world with fast, low-cost transactions worldwide. Explore Celo’s vibe code tools, mobile-first design, and strategies to reach millions of users through Opera MiniPay.",
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.TALK,
