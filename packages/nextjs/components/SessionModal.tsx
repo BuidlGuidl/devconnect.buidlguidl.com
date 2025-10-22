@@ -52,16 +52,16 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
   return (
     <div className={`modal ${isOpen ? "modal-open" : ""} items-start sm:items-center pt-16 sm:pt-0`}>
       <div
-        className="modal-box max-w-2xl max-h-[85vh] overflow-y-auto"
+        className="modal-box max-w-2xl max-h-[90vh] overflow-y-auto"
         style={{ backgroundColor: lightColors[session.type] }}
       >
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="font-bold text-lg text-primary mb-0">{session.title}</h3>
             {session.speaker && (
-              <div className="flex items-center gap-6">
+              <div className="flex items-start gap-6 mb-2 mt-3">
                 {session.speaker.map(speaker => (
-                  <div key={speaker.name} className="flex items-center gap-2">
+                  <div key={speaker.name} className="flex items-start gap-2">
                     <Image
                       key={speaker.name}
                       src={speaker.image}
@@ -70,7 +70,23 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
                       height={32}
                       className="rounded-full"
                     />
-                    <p className="font-bold">{speaker.name}</p>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="font-bold">{speaker.name}</span>
+                      {speaker.company && (
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-sm text-base-content/70">{speaker.company.name}</span>
+                          <div className="w-4 h-4 flex items-center justify-center flex-shrink-0 rounded overflow-hidden">
+                            <Image
+                              src={speaker.company.icon}
+                              alt={`${speaker.company.name} logo`}
+                              width={16}
+                              height={16}
+                              className="opacity-70 object-contain max-w-full max-h-full"
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>

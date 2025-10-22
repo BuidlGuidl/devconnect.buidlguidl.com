@@ -11,6 +11,10 @@ export enum SessionType {
 export type Speaker = {
   name: string;
   image: string;
+  company?: {
+    name: string;
+    icon: string;
+  };
 };
 
 export interface Session {
@@ -43,54 +47,106 @@ export const SPEAKERS = {
   PATRICK: {
     name: "Patrick McCorry",
     image: "/speakers/patrick.jpg",
+    company: {
+      name: "Arbitrum",
+      icon: "/companies/arbitrum.svg",
+    },
   },
   AUSTIN: {
     name: "Austin Griffith",
     image: "/speakers/austin.png",
+    company: {
+      name: "Ethereum Foundation",
+      icon: "/companies/ethereum-foundation.png",
+    },
   },
   CARLOS: {
     name: "Carlos Sánchez",
     image: "/speakers/carlos.jpg",
+    company: {
+      name: "BuidlGuidl",
+      icon: "/companies/buidlguidl.svg",
+    },
   },
   SHIV: {
     name: "Shiv Bhonde",
     image: "/speakers/shiv.jpeg",
+    company: {
+      name: "BuidlGuidl",
+      icon: "/companies/buidlguidl.svg",
+    },
   },
   PABLO: {
     name: "Pablo Alayeto",
     image: "/speakers/pablo.png",
+    company: {
+      name: "BuidlGuidl",
+      icon: "/companies/buidlguidl.svg",
+    },
   },
   PHILIP: {
     name: "Philip Krause",
     image: "/speakers/philip.png",
+    company: {
+      name: "BuidlGuidl",
+      icon: "/companies/buidlguidl.svg",
+    },
   },
   ELLIOT: {
     name: "Elliott Alexander",
     image: "/speakers/elliott.png",
+    company: {
+      name: "Ethereum Foundation",
+      icon: "/companies/ethereum-foundation.png",
+    },
   },
   HORSEFACTS: {
     name: "Horsefacts",
     image: "/speakers/horsefacts.jpg",
+    company: {
+      name: "Farcaster",
+      icon: "/companies/farcaster.svg",
+    },
   },
   SHYAM: {
     name: "Shyam",
     image: "/speakers/shyam.jpg",
+    company: {
+      name: "Ethereum Foundation",
+      icon: "/companies/ethereum-foundation.png",
+    },
   },
   EDA: {
     name: "Eda Akturk",
     image: "/speakers/eda.jpg",
+    company: {
+      name: "Hyperlane",
+      icon: "/companies/hyperlane.jpeg",
+    },
   },
   KEVIN: {
     name: "Kevin Jones",
     image: "/speakers/kevin.jpg",
+    company: {
+      name: "Edge & Node",
+      icon: "/companies/edge-and-node.png",
+    },
   },
   SPENCER: {
     name: "Spencer Faber",
     image: "/speakers/spencer.jpg",
+    company: {
+      name: "BuidlGuidl",
+      icon: "/companies/buidlguidl.svg",
+    },
   },
   JEFFREY: {
     name: "Jeffrey Scholz",
     image: "/speakers/jeffrey.jpg",
+    company: {
+      name: "RareSkills",
+      icon: "/companies/rareskills.jpeg",
+    },
   },
   NIKOLAI: {
     name: "Nikolai",
@@ -99,6 +155,10 @@ export const SPEAKERS = {
   HUNTER: {
     name: "Hunter B.",
     image: "/speakers/hunter.jpg",
+    company: {
+      name: "Arbitrum",
+      icon: "/companies/arbitrum.svg",
+    },
   },
   MONICA: {
     name: "Monica Zeng",
@@ -107,6 +167,18 @@ export const SPEAKERS = {
   DAMU: {
     name: "Damian Martinelli",
     image: "/speakers/damu.jpg",
+    company: {
+      name: "BuidlGuidl",
+      icon: "/companies/buidlguidl.svg",
+    },
+  },
+  SOPHIA: {
+    name: "Sophia",
+    image: "/speakers/sophia.jpg",
+    company: {
+      name: "Celo",
+      icon: "/companies/celo.svg",
+    },
   },
 };
 
@@ -137,7 +209,7 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.AUSTIN],
   },
   {
-    title: "Unveling Scaffold UI",
+    title: "Unveiling Scaffold UI",
     date: "2025-11-18",
     startTime: "12:30",
     endTime: "13:00",
@@ -149,12 +221,12 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.SHIV],
   },
   {
-    title: "Introduction to SpeedRunEthereum",
+    title: "Introduction to Speedrun Ethereum",
     date: "2025-11-18",
     startTime: "14:00",
     endTime: "15:00",
     description:
-      "This session introduces SpeedRunEthereum, a gamified learning platform that helps developers understand all the Ethereum development gotchas as you build your onchain portfolio. We'll do a walkthrough of the first few challenges.",
+      "This session introduces Speedrun Ethereum, a gamified learning platform that helps developers understand all the Ethereum development gotchas as you build your onchain portfolio. We'll do a walkthrough of the first few challenges.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
@@ -166,7 +238,7 @@ export const sessions: Session[] = [
     startTime: "15:30",
     endTime: "16:30",
     description:
-      "Dive deep into the mechanics of decentralized algorithmic stablecoins and explore how they maintain price stability. Discover the critical role of over-collateralization in protecting against volatility and collapse. Then, put theory into practice with a guided SpeedRunEthereum challenge that demonstrates how economic principles and incentive design can keep digital assets stable in real-world conditions.",
+      "Dive deep into the mechanics of decentralized algorithmic stablecoins and explore how they maintain price stability. Discover the critical role of over-collateralization in protecting against volatility and collapse. Then, put theory into practice with a guided Speedrun Ethereum challenge that demonstrates how economic principles and incentive design can keep digital assets stable in real-world conditions.",
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.CHALLENGE,
@@ -191,7 +263,7 @@ export const sessions: Session[] = [
     startTime: "10:00",
     endTime: "11:00",
     description:
-      "Build your own prediction market and understand how these powerful tools aggregate wisdom from crowds. This SpeedRunEthereum challenge walks you through implementing betting mechanisms, oracle integration for real-world data, and automated resolution systems.",
+      "Build your own prediction market and understand how these powerful tools aggregate wisdom from crowds. This Speedrun Ethereum challenge walks you through implementing betting mechanisms, oracle integration for real-world data, and automated resolution systems.",
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.CHALLENGE,
@@ -203,7 +275,7 @@ export const sessions: Session[] = [
     startTime: "11:00",
     endTime: "12:00",
     description:
-      "Explore the world of Zero-Knowledge proofs and privacy-preserving computation. This SpeedRunEthereum challenge guides you through implementing ZK circuits, understanding proof generation and verification, and building applications that can prove knowledge without revealing secrets.",
+      "Explore the world of Zero-Knowledge proofs and privacy-preserving computation. This Speedrun Ethereum challenge guides you through implementing ZK circuits, understanding proof generation and verification, and building applications that can prove knowledge without revealing secrets.",
     dayOfWeek: "Wednesday",
     dateString: "November 19",
     type: SessionType.CHALLENGE,
@@ -283,7 +355,7 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.HORSEFACTS],
   },
   {
-    title: "Build a Farcaster Miniapp",
+    title: "Miniapps in Scaffold-ETH",
     date: "2025-11-20",
     startTime: "11:00",
     endTime: "11:30",
@@ -306,16 +378,27 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.HUNTER],
   },
   {
-    title: "PMfers live",
+    title: "Miniapps ecosystem on Celo",
     date: "2025-11-20",
     startTime: "12:00",
-    endTime: "13:00",
+    endTime: "12:30",
     description:
-      "Join us for an inspiring panel discussion about building your career in Web3! We'll bring in special guests to share insights about developer education, breaking into the Ethereum industry, landing your first Web3 job, and building a successful onchain career.",
+      "Learn how to build mini apps on Celo, the L2 built for the real world with fast, low-cost transactions worldwide. Explore Celo’s vibe code tools, mobile-first design, and strategies to reach millions of users through Opera MiniPay.",
     dayOfWeek: "Thursday",
     dateString: "November 20",
-    type: SessionType.PANEL,
-    speaker: [SPEAKERS.AUSTIN],
+    type: SessionType.TALK,
+    speaker: [SPEAKERS.SOPHIA],
+  },
+  {
+    title: "Open time to build a miniapp",
+    date: "2025-11-20",
+    startTime: "12:30",
+    endTime: "13:00",
+    description:
+      "Get hands-on experience building your first miniapp in this interactive workshop. Learn the fundamentals of miniapp development and deploy your creation by the end of the session.",
+    dayOfWeek: "Thursday",
+    dateString: "November 20",
+    type: SessionType.WORKSHOP,
   },
   {
     title: "Capture the Flag",
