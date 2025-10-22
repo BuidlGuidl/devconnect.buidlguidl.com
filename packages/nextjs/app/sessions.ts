@@ -158,7 +158,7 @@ export const sessions: Session[] = [
     dayOfWeek: "Tuesday",
     dateString: "November 18",
     type: SessionType.WORKSHOP,
-    speaker: [SPEAKERS.AUSTIN],
+    speaker: [SPEAKERS.KEVIN],
   },
   {
     title: "Stablecoins",
