@@ -440,7 +440,7 @@ export const sessions: Session[] = [
     startTime: "14:00",
     endTime: "15:00",
     description:
-      "Find your perfect co-founder in this fast-paced networking session! Rotate through quick 5-minute conversations with fellow entrepreneurs, developers, and visionaries. Pitch your ideas, discover complementary skills, and make the connections that could launch your next Ethereum venture.",
+      "Most engineers fail at building companies, not because they can't build, but because they think they can code their way out of every problem. When you can't debug humans, when great software doesn't sell, when investors pass and the market doesn't respond... what then? For the past 8 years, Monica has built teams and coached founders through these same moments. Learn how to build beyond code.",
     dayOfWeek: "Friday",
     dateString: "November 21",
     type: SessionType.TALK,
