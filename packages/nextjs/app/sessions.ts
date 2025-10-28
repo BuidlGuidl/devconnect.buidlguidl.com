@@ -163,6 +163,10 @@ export const SPEAKERS = {
   MONICA: {
     name: "Monica Zeng",
     image: "/speakers/monica.png",
+    company: {
+      name: "Inner Foundation",
+      icon: "/companies/inner-foundation.png",
+    },
   },
   DAMU: {
     name: "Damian Martinelli",
@@ -431,16 +435,28 @@ export const sessions: Session[] = [
     },
   },
   {
-    title: "Founder Speed Dating",
+    title: "Engineer to Founder: building beyond code",
     date: "2025-11-21",
     startTime: "14:00",
-    endTime: "15:30",
+    endTime: "15:00",
     description:
       "Find your perfect co-founder in this fast-paced networking session! Rotate through quick 5-minute conversations with fellow entrepreneurs, developers, and visionaries. Pitch your ideas, discover complementary skills, and make the connections that could launch your next Ethereum venture.",
     dayOfWeek: "Friday",
     dateString: "November 21",
-    type: SessionType.PANEL,
-    speaker: [SPEAKERS.AUSTIN, SPEAKERS.KEVIN],
+    type: SessionType.TALK,
+    speaker: [SPEAKERS.MONICA],
+  },
+  {
+    title: "Factorio for fun",
+    date: "2025-11-21",
+    startTime: "15:00",
+    endTime: "16:00",
+    description:
+      "Did your mom take enough Tylenol for you to deeply enjoy Factorio? Come hang out with the BuidlGuidl and play Factorio for fun!",
+    dayOfWeek: "Friday",
+    dateString: "November 21",
+    type: SessionType.WORKSHOP,
+    speaker: [SPEAKERS.AUSTIN],
   },
   {
     title: "Use Scaffold-ETH for your ETH Global Hackathon",
