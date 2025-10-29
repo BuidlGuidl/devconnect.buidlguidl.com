@@ -288,7 +288,7 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.PHILIP],
   },
   {
-    title: "Run your own Ethereum node with the BG 'client'",
+    title: "Run your own Ethereum node with one simple command",
     date: "2025-11-19",
     startTime: "12:00",
     endTime: "13:00",
