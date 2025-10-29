@@ -288,12 +288,12 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.PHILIP],
   },
   {
-    title: "BuidlGuidl 'Client' and dRPC",
+    title: "Run your own Ethereum node",
     date: "2025-11-19",
     startTime: "12:00",
     endTime: "13:00",
     description:
-      'BuidlGuidl has their own "client"! Well actually it\'s just a nerdy terminal app that runs an EL/CL pair with one command (https://client.buidlguidl.com). If you add a --owner YourName.eth you opt in to our dRPC system that power all Scaffold-ETH apps (https://rpc.buidlguidl.com)! Come learn more!',
+      "Discover why running your own node is crucial for decentralization and learn about the different types of nodes in the Ethereum ecosystem. We'll cover the basics of execution and consensus clients, why node operators matter, and then walk through setting up your own node using BuidlGuidl's client tool—a simple terminal app that runs an EL/CL pair with one command (https://client.buidlguidl.com). Bonus: Add --owner YourName.eth to opt into our dRPC system that powers all Scaffold-ETH apps!",
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.WORKSHOP,
