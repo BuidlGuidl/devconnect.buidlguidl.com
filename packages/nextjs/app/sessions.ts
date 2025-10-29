@@ -293,7 +293,7 @@ export const sessions: Session[] = [
     startTime: "12:00",
     endTime: "13:00",
     description:
-      "Discover why running your own node is crucial for decentralization and learn about the different types of nodes in the Ethereum ecosystem. We'll cover the basics of execution and consensus clients, why node operators matter, and then walk through setting up your own node using BuidlGuidl's client tool—a simple terminal app that runs an EL/CL pair with one command (https://client.buidlguidl.com). Bonus: Add --owner YourName.eth to opt into our dRPC system that powers all Scaffold-ETH apps!",
+      "Learn why nodes matter for decentralization, the difference between execution and consensus clients, and types of nodes in the ecosystem. Then set up your own node using BuidlGuidl's client—a terminal app that runs an EL/CL pair with one command (https://client.buidlguidl.com). Add --owner YourName.eth to opt into our dRPC system that powers all Scaffold-ETH apps!",
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.WORKSHOP,
