@@ -6,6 +6,7 @@ export enum SessionType {
   STUDENTS = "students",
   CHALLENGE = "challenge",
   TALK = "talk",
+  GAME = "game",
 }
 
 export type Speaker = {
@@ -41,6 +42,7 @@ export const sessionTypeColors = {
   [SessionType.STUDENTS]: { backgroundColor: "#FFC83D" }, //yellow
   [SessionType.CHALLENGE]: { backgroundColor: "#B2A0FF" }, //purple
   [SessionType.TALK]: { backgroundColor: "#8FD9B8" }, //greenish
+  [SessionType.GAME]: { backgroundColor: "#FF9B6A" }, //orange
 };
 
 export const SPEAKERS = {
@@ -239,8 +241,8 @@ export const sessions: Session[] = [
   {
     title: "Stablecoins",
     date: "2025-11-18",
-    startTime: "15:30",
-    endTime: "16:30",
+    startTime: "15:00",
+    endTime: "16:00",
     description:
       "Dive deep into the mechanics of decentralized algorithmic stablecoins and explore how they maintain price stability. Discover the critical role of over-collateralization in protecting against volatility and collapse. Then, put theory into practice with a guided Speedrun Ethereum challenge that demonstrates how economic principles and incentive design can keep digital assets stable in real-world conditions.",
     dayOfWeek: "Tuesday",
@@ -251,7 +253,7 @@ export const sessions: Session[] = [
   {
     title: "BG Office hours / Mentoring",
     date: "2025-11-18",
-    startTime: "16:30",
+    startTime: "16:00",
     endTime: "17:30",
     description:
       "Get personalized guidance from experienced BuidlGuidl builders in this interactive mentoring session. Whether you're stuck on a coding challenge, need a code review, or want strategic advice on your project direction, our mentors are here to help. Bring your questions, your code, and your ideas.",
@@ -286,12 +288,12 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.PHILIP],
   },
   {
-    title: "Run your own Ethereum node",
+    title: "BuidlGuidl 'Client' and dRPC",
     date: "2025-11-19",
     startTime: "12:00",
     endTime: "13:00",
     description:
-      "Take control of your Ethereum experience by running your own node! Discover why node operators are the backbone of decentralization, learn the difference between execution and consensus clients, and walk through the complete setup process. We'll cover hardware requirements, client selection, and best practices for maintaining a secure, synced node that gives you trustless access to the Ethereum network.",
+      'BuidlGuidl has their own "client"! Well actually it\'s just a nerdy terminal app that runs an EL/CL pair with one command (https://client.buidlguidl.com). If you add a --owner YourName.eth you opt in to our dRPC system that power all Scaffold-ETH apps (https://rpc.buidlguidl.com)! Come learn more!',
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.WORKSHOP,
@@ -322,27 +324,16 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.JEFFREY],
   },
   {
-    title: "Play a vibe coded game",
+    title: "Max Extract - a game for solidity devs",
     date: "2025-11-19",
     startTime: "15:45",
-    endTime: "16:30",
-    description:
-      "Join Austin for an entertaining and educational live coding adventure! We'll collaboratively build an onchain game from scratch with real-time input from the audience. Watch the development process unfold, suggest features, and immediately play what we create together.",
-    dayOfWeek: "Wednesday",
-    dateString: "November 19",
-    type: SessionType.WORKSHOP,
-    speaker: [SPEAKERS.AUSTIN],
-  },
-  {
-    title: "BG Office hours / Mentoring",
-    date: "2025-11-19",
-    startTime: "16:30",
     endTime: "17:30",
     description:
-      "Get personalized guidance from experienced BuidlGuidl builders in this interactive mentoring session. Whether you're stuck on a coding challenge, need a code review, or want strategic advice on your project direction, our mentors are here to help. Bring your questions, your code, and your ideas.",
+      "In the asteroid belt, the real battles aren't fought with lasers—they're waged in silence. Anarchy rules, squandering more than it gives. Build coordination mechanisms for space pirates in this interactive Solidity game where you'll design smart contracts that solve the inefficiency of lawless resource extraction. Can your code bring order to chaos?",
     dayOfWeek: "Wednesday",
     dateString: "November 19",
-    type: SessionType.OFFICE_HOURS,
+    type: SessionType.GAME,
+    speaker: [SPEAKERS.AUSTIN],
   },
 
   // Thursday 20
@@ -450,18 +441,18 @@ export const sessions: Session[] = [
     title: "Factorio for fun",
     date: "2025-11-21",
     startTime: "15:00",
-    endTime: "16:00",
+    endTime: "16:45",
     description:
       "Did your mom take enough Tylenol for you to deeply enjoy Factorio? Come hang out with the BuidlGuidl and play Factorio for fun!",
     dayOfWeek: "Friday",
     dateString: "November 21",
-    type: SessionType.WORKSHOP,
+    type: SessionType.GAME,
     speaker: [SPEAKERS.AUSTIN],
   },
   {
     title: "Use Scaffold-ETH for your ETH Global Hackathon",
     date: "2025-11-21",
-    startTime: "16:00",
+    startTime: "16:45",
     endTime: "17:30",
     description:
       "Maximize your hackathon success with Scaffold-ETH 2! This workshop is specifically designed for ETH Global participants, covering advanced SE-2 techniques and rapid prototyping strategies. Learn how to build & deploy faster and access ongoing BuidlGuidl office hours support during your hackathon journey.",
