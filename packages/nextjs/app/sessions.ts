@@ -450,7 +450,7 @@ export const sessions: Session[] = [
     speaker: [SPEAKERS.AUSTIN],
   },
   {
-    title: "Use Scaffold-ETH for your ETH Global Hackathon",
+    title: "Use Scaffold-ETH for the ETH Global Hackathon",
     date: "2025-11-21",
     startTime: "16:45",
     endTime: "17:30",
