@@ -47,6 +47,7 @@ export const SessionModal = ({ session, isOpen, onClose }: SessionModalProps) =>
     students: "#FFE4A0", // light yellow
     challenge: "#D4B0FF", // light purple
     talk: "#C7EBD9", // light greenish
+    game: "#FFCCB5", // light orange
   };
 
   return (
