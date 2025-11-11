@@ -401,7 +401,7 @@ export const sessions: Session[] = [
     startTime: "14:00",
     endTime: "17:30",
     description:
-      "Tackle 12 increasingly challenging Solidity puzzles in this high-stakes Capture the Flag competition! Form teams and compete for $5,000 in prizes as you hunt for vulnerabilities, exploit smart contract weaknesses, and solve cryptographic challenges.",
+      "Tackle 12 increasingly challenging Solidity puzzles in this high-stakes Capture the Flag competition! Form teams and compete for $6,000 in prizes as you hunt for vulnerabilities, exploit smart contract weaknesses, and solve cryptographic challenges.",
     dayOfWeek: "Thursday",
     dateString: "November 20",
     type: SessionType.CTF,
